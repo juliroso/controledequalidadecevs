@@ -88,6 +88,12 @@
     </div>
 </div>
 
+<div class="card">
+    <h2 style="color: #4A0352;">Checklist de Inspeção</h2>
+    <p>Ferramenta rápida para conferência de itens obrigatórios no local.</p>
+    <a href="checklist.html" class="btn" style="background-color: #00004B;">Abrir Checklist</a>
+</div>
+
 <footer>
     CEVS - Vigilância Sanitária de Mamografia
 </footer>
