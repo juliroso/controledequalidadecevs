@@ -6,62 +6,14 @@
     <title>Atlas de Artefatos - CEVS</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            margin: 0; padding: 0; 
-            background-color: #F2F2F2; 
-        }
-        header { 
-            background-color: #4A0352; /* Roxo */
-            color: white; padding: 30px; text-align: center;
-            border-bottom: 5px solid #F29509; /* Laranja */
-        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
         .container { max-width: 900px; margin: 20px auto; padding: 15px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
         
-        .btn-voltar {
-            display: inline-block; margin-bottom: 20px;
-            color: #00004B; text-decoration: none; font-weight: bold;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        /* Nova seção de Observações Técnicas */
-        .obs-box {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border-top: 5px solid #4A0352;
-        }
-        .obs-box h2 {
-            color: #4A0352;
-            font-family: 'Poppins', sans-serif;
-            font-size: 20px;
-            margin-top: 0;
-        }
-        .grid-obs {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .obs-item {
-            font-size: 14px;
-            color: #555;
-            display: flex;
-            align-items: center;
-        }
-        .obs-item::before {
-            content: "○";
-            margin-right: 12px;
-            color: #F29509;
-            font-weight: bold;
-            font-size: 18px;
-        }
-
-        /* Cards de Artefatos */
+        /* Estilo do Card Individual */
         .card-artefato {
-            background: white; border-radius: 10px; margin-bottom: 25px;
+            background: white; border-radius: 10px; margin-bottom: 30px;
             overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             border-left: 10px solid #00004B; /* Azul Marinho */
         }
@@ -69,22 +21,17 @@
             width: 100%; height: 250px; background-color: #DFDFDF;
             display: flex; align-items: center; justify-content: center;
             color: #792382; font-style: italic; font-size: 14px;
+            border-bottom: 1px solid #eee;
         }
+        .imagem-box img { width: 100%; height: 100%; object-fit: cover; }
         .info { padding: 20px; }
-        .tag-reprovação {
+        .tag {
             background: #4A0352; color: white; padding: 4px 12px;
-            border-radius: 20px; font-size: 12px; font-weight: bold;
+            border-radius: 20px; font-size: 11px; font-weight: bold;
             text-transform: uppercase; margin-bottom: 10px; display: inline-block;
         }
-        h3 { 
-            margin: 0 0 10px 0; color: #00004B; 
-            font-family: 'Poppins', sans-serif; 
-        }
+        h3 { margin: 0 0 10px 0; color: #00004B; font-family: 'Poppins', sans-serif; font-size: 20px; }
         p { margin: 0; font-size: 14px; color: #555; line-height: 1.5; }
-
-        @media (max-width: 600px) {
-            .grid-obs { grid-template-columns: 1fr; }
-        }
     </style>
 </head>
 <body>
@@ -97,40 +44,75 @@
 <div class="container">
     <a href="index.html" class="btn-voltar">← Voltar ao Menu Inicial</a>
 
-    <div class="obs-box">
-        <h2>Observações Técnicas e Artefatos</h2>
-        <p style="font-size: 14px; color: #777;">Itens que o fiscal deve identificar na imagem do teste:</p>
-        <div class="grid-obs">
-            <div class="obs-item">Problema no janelamento</div>
-            <div class="obs-item">Imagem Residual</div>
-            <div class="obs-item">Pontos / Manchas</div>
-            <div class="obs-item">Não Uniformidade</div>
-            <div class="obs-item">Riscos / Ruído</div>
-            <div class="obs-item">IPs identificados incorretamente</div>
-            <div class="obs-item">Excesso de Artefatos</div>
-            <div class="obs-item">Iniciar Investigação Técnica</div>
-        </div>
-    </div>
-
     <div class="card-artefato">
-        <div class="imagem-box">
-            <span>[Foto: Exemplo de Artefatos de Grade]</span>
-        </div>
+        <div class="imagem-box"><span>[Foto: Exemplo de Artefatos de Grade]</span></div>
         <div class="info">
-            <span class="tag-reprovação">Reprova se visível</span>
+            <span class="tag">REPROVA SE VISÍVEL</span>
             <h3>Linhas de Grade Antidifusora</h3>
-            <p>Aparecimento de linhas finas paralelas que prejudicam a visualização de microcalcificações.</p>
+            <p>Aparecimento de linhas finas paralelas que prejudicam a visualização de microcalcificações. Causa: Falha no movimento da grade ou exposição inadequada.</p>
         </div>
     </div>
 
     <div class="card-artefato">
-        <div class="imagem-box">
-            <span>[Foto: Exemplo de Ruído/Poeira]</span>
-        </div>
+        <div class="imagem-box"><span>[Foto: Exemplo de Erro de Janelamento]</span></div>
         <div class="info">
-            <span class="tag-reprovação">Limpeza Necessária</span>
-            <h3>Poeira ou Sujidade no IP/Detector</h3>
-            <p>Pontos brancos que podem simular patologias. Exige verificação da rotina de limpeza.</p>
+            <span class="tag">AJUSTE TÉCNICO</span>
+            <h3>Problema no Janelamento</h3>
+            <p>Ajuste incorreto de brilho e contraste (Window/Level) que esconde estruturas anatômicas ou simula patologias inexistentes.</p>
+        </div>
+    </div>
+
+    <div class="card-artefato">
+        <div class="imagem-box"><span>[Foto: Exemplo de Ghosting]</span></div>
+        <div class="info">
+            <span class="tag">FALHA NO DETECTOR</span>
+            <h3>Imagem Residual (Ghosting)</h3>
+            <p>Sombra de uma exposição anterior que permanece visível na imagem atual. Indica necessidade de calibração ou limpeza eletrônica do detector.</p>
+        </div>
+    </div>
+
+    <div class="card-artefato">
+        <div class="imagem-box"><span>[Foto: Exemplo de Pontos e Manchas]</span></div>
+        <div class="info">
+            <span class="tag">LIMPEZA NECESSÁRIA</span>
+            <h3>Pontos / Manchas</h3>
+            <p>Presença de sujidade no detector, chassis ou placa de fósforo. Pode ser confundido com microcalcificações diagnósticas.</p>
+        </div>
+    </div>
+
+    <div class="card-artefato">
+        <div class="imagem-box"><span>[Foto: Exemplo de Não Uniformidade]</span></div>
+        <div class="info">
+            <span class="tag">CALIBRAÇÃO EXIGIDA</span>
+            <h3>Não Uniformidade</h3>
+            <p>Variações de brilho em áreas que deveriam ser homogêneas. Geralmente causado por falhas de processamento ou sensibilidade do detector.</p>
+        </div>
+    </div>
+
+    <div class="card-artefato">
+        <div class="imagem-box"><span>[Foto: Exemplo de Riscos e Ruído]</span></div>
+        <div class="info">
+            <span class="tag">DANO FÍSICO / ELETRÔNICO</span>
+            <h3>Riscos / Ruído</h3>
+            <p>Riscos físicos na placa (CR) ou ruído eletrônico excessivo que degrada a resolução da imagem mamográfica.</p>
+        </div>
+    </div>
+
+    <div class="card-artefato">
+        <div class="imagem-box"><span>[Foto: Erro de Identificação]</span></div>
+        <div class="info">
+            <span class="tag">ERRO ADMINISTRATIVO</span>
+            <h3>IPs identificados incorretamente</h3>
+            <p>Falha na correspondência entre os dados do paciente e as placas de imagem (IPs), gerando risco de troca de exames.</p>
+        </div>
+    </div>
+
+    <div class="card-artefato">
+        <div class="imagem-box"><span>[Foto: Excesso de Artefatos]</span></div>
+        <div class="info">
+            <span class="tag" style="background: #d32f2f;">AÇÃO IMEDIATA</span>
+            <h3>Iniciar Investigação Técnica</h3>
+            <p>Quando o excesso de artefatos impede o diagnóstico seguro, o fiscal deve exigir a suspensão do uso do equipamento até a manutenção corretiva.</p>
         </div>
     </div>
 
