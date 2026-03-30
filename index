@@ -27,7 +27,7 @@
     <div class="card">
         <h2>2. Qualidade da Imagem</h2>
         <p>Como avaliar artefatos e resolução no simulador (Phantom).</p>
-        <a href="qualidade.html" class="btn">Ver Critérios</a>
+        <a href="artefatos.html" class="btn">Ver Critérios</a>
     </div>
 </body>
 </html>
