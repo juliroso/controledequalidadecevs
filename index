@@ -94,6 +94,12 @@
     <a href="checklist.html" class="btn" style="background-color: #00004B;">Abrir Checklist</a>
 </div>
 
+<div class="card">
+    <h2 style="color: #4A0352;">Base Legal</h2>
+    <p>Acesso rápido às RDCs e Instruções Normativas da ANVISA.</p>
+    <a href="legislacao.html" class="btn" style="background-color: #792382;">Consultar Normas</a>
+</div>
+
 <footer>
     CEVS - Vigilância Sanitária de Mamografia
 </footer>
