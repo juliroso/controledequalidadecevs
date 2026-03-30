@@ -17,11 +17,13 @@
         th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #DFDFDF; font-size: 13px; }
         th { background-color: #4A0352; color: white; font-family: 'Poppins', sans-serif; text-transform: uppercase; font-size: 12px; }
         
-        /* Seção de Critérios (Baseado na sua imagem) */
+        /* Blocos de Informação */
         .info-box { background: white; padding: 25px; border-radius: 8px; border-left: 10px solid #F29509; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        .info-box h2 { color: #00004B; font-family: 'Poppins', sans-serif; font-size: 18px; margin-top: 0; }
-        .info-box h3 { color: #4A0352; font-size: 16px; margin-bottom: 10px; }
-        .info-box p, .info-box li { font-size: 14px; color: #444; line-height: 1.6; }
+        .highlight-blue { background: #eef2f7; border-left: 10px solid #00004B; padding: 20px; border-radius: 8px; margin-bottom: 25px; }
+        
+        h2 { color: #00004B; font-family: 'Poppins', sans-serif; font-size: 18px; margin-top: 0; }
+        h3 { color: #4A0352; font-size: 16px; margin-bottom: 10px; font-family: 'Poppins', sans-serif; }
+        p, li { font-size: 14px; color: #444; line-height: 1.6; }
         
         .tolerancia { color: #d32f2f; font-weight: bold; }
         .categoria { background-color: #FAAF3F; padding: 3px 8px; border-radius: 4px; color: #000; font-weight: bold; font-size: 11px; }
@@ -31,7 +33,7 @@
         @media print {
             .btn-voltar, .btn-pdf, header { display: none !important; }
             body { background: white; }
-            .info-box { border: 1px solid #ccc; box-shadow: none; }
+            .info-box, .highlight-blue { border: 1px solid #ccc; box-shadow: none; page-break-inside: avoid; }
         }
     </style>
 </head>
@@ -39,11 +41,18 @@
 
 <header>
     <h1 style="font-family: 'Poppins', sans-serif; margin: 0;">Tabela de Referência</h1>
-    <p style="margin: 5px 0 0; font-size: 14px;">Instrução Normativa nº 92/2021 - ANVISA</p>
+    <p style="margin: 5px 0 -5px; font-size: 14px;">Instrução Normativa nº 92/2021 - ANVISA</p>
 </header>
 
 <div class="container">
     <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
+
+    <div class="highlight-blue">
+        <h2 style="text-transform: uppercase;">Teste: Qualidade da Imagem</h2>
+        <p><strong>Objetivo:</strong> Assegurar a qualidade da imagem mamográfica a nível diagnóstico. O teste avalia se o desempenho do equipamento permanece dentro dos níveis aceitáveis.</p>
+        <p><strong>Frequência de realização:</strong> <span class="categoria">Mensalmente</span>, segundo IN 92/2021-Anvisa.</p>
+        <p><strong>Objeto simulador de mama:</strong> O simulador de teste deve possuir objetos de teste que permitam avaliar as características da imagem (fibras, microcalcificações e massas).</p>
+    </div>
 
     <div class="table-wrapper">
         <table>
@@ -60,7 +69,7 @@
                     <td><strong>Força de Compressão</strong></td>
                     <td><span class="categoria">Semestral</span></td>
                     <td><span class="tolerancia">11 a 20 kgf</span></td>
-                    <td>Garante contraste e reduz dose de radiação.</td>
+                    <td>Contraste e redução da dose de radiação.</td>
                 </tr>
                 <tr>
                     <td><strong>Resolução Espacial</strong></td>
@@ -72,58 +81,53 @@
                     <td><strong>Alinhamento do Campo</strong></td>
                     <td><span class="categoria">Semestral</span></td>
                     <td>Desvio: <span class="tolerancia">≤ 2% da DFF</span></td>
-                    <td>Coincidência entre campo de luz e Raio-X.</td>
+                    <td>Coincidência campo de luz / Raio-X.</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
     <div class="info-box">
-        <h2>Detalhamento: Avaliação do Simulador (Phantom)</h2>
+        <h2>Detalhamento da Avaliação (Phantom)</h2>
         
-        <h3>Como é a avaliação:</h3>
+        <h3>Como é a avaliação visual:</h3>
         <p>
-            <strong>Mamografia Convencional:</strong> O filme deve ser visualizado em negatoscópio clínico com lente de aumento (ampliação mínima de 2x; ideal 10x para microcalcificações).<br>
-            <strong>Mamografia Digital:</strong> A imagem deve ser avaliada diretamente no monitor utilizando ferramentas específicas de visualização e identificação das menores simulações.
+            <strong>Mamografia Convencional:</strong> O filme deve ser visualizado em negatoscópio clínico com lente de aumento (ampliação mínima de 2x; ideal 10x).<br>
+            <strong>Mamografia Digital:</strong> Avaliação em monitor médico com ferramentas de zoom e identificação de menores simulações.
         </p>
 
-        <h3>Tabela de Tolerância (Figura 02):</h3>
-        <div class="table-wrapper">
-            <table style="box-shadow: none;">
-                <thead>
-                    <tr style="background-color: #f4f4f4;">
-                        <th style="background-color: #666;">Objeto Simulado</th>
-                        <th style="background-color: #666;">Tolerância</th>
-                        <th style="background-color: #666;">Nível de Restrição</th>
+        <h3>Tabela de Tolerância (Limites de Restrição):</h3>
+        <div class="table-wrapper" style="box-shadow: none; border: 1px solid #eee;">
+            <table style="width: 100%;">
+                <thead style="background-color: #f4f4f4;">
+                    <tr>
+                        <th style="background-color: #666;">Estrutura</th>
+                        <th style="background-color: #666;">Tolerância Máxima</th>
+                        <th style="background-color: #666;">Critério de Visibilidade</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Fibra</td>
+                        <td><strong>Fibra</strong></td>
                         <td><span class="tolerancia">≤ 0,75 mm</span></td>
-                        <td rowspan="3" style="vertical-align: middle; text-align: center; background: #fff5f5;">Não cumprir os requisitos</td>
+                        <td>Orientação correta e min. 50% do comprimento.</td>
                     </tr>
                     <tr>
-                        <td>Microcalcificação</td>
+                        <td><strong>Microcalcificação</strong></td>
                         <td><span class="tolerancia">≤ 0,32 mm</span></td>
+                        <td>Orientação correta e min. 4 de 5 pontos visíveis.</td>
                     </tr>
                     <tr>
-                        <td>Massa</td>
+                        <td><strong>Massa</strong></td>
                         <td><span class="tolerancia">≤ 0,75 mm</span></td>
+                        <td>Localização correta e aparência circular nítida.</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-
-        <h3>Critérios de Avaliação Visual:</h3>
-        <ul>
-            <li><strong>Fibra:</strong> Visível se for possível verificar a orientação e localização corretas, e pelo menos metade do seu comprimento for reconhecido.</li>
-            <li><strong>Microcalcificação:</strong> Visível se for possível verificar a orientação correta e pelo menos quatro dos cinco pontos forem reconhecidos.</li>
-            <li><strong>Massa Tumoral:</strong> Visível se for possível verificar a localização correta e sua aparência circular for identificada.</li>
-        </ul>
     </div>
 
-    <button onclick="window.print()" class="btn-pdf">📄 Salvar em PDF</button>
+    <button onclick="window.print()" class="btn-pdf">📄 Salvar Guia em PDF</button>
 </div>
 
 </body>
