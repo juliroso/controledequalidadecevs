@@ -3,64 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Critérios de Aceitabilidade - IN 92</title>
+    <title>Guia de Artefatos - CEVS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f4f7f9; }
-        header { background: #00004B; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
-        .voltar { text-decoration: none; color: #00004B; font-weight: bold; display: inline-block; margin-bottom: 15px; }
-        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background-color: #4A0352; color: white; }
-        tr:hover { background-color: #f1f1f1; }
-        .tolerancia { font-weight: bold; color: #d32f2f; }
-        @media (max-width: 600px) { th, td { font-size: 14px; padding: 8px; } }
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; padding: 0; 
+            background-color: #F2F2F2; 
+        }
+        header { 
+            background-color: #4A0352; /* Roxo */
+            color: white; padding: 30px; text-align: center;
+            border-bottom: 5px solid #F29509; /* Laranja */
+        }
+        .container { max-width: 800px; margin: 20px auto; padding: 15px; }
+        .btn-voltar {
+            display: inline-block; margin-bottom: 20px;
+            color: #00004B; text-decoration: none; font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+        .card-artefato {
+            background: white; border-radius: 10px; margin-bottom: 25px;
+            overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 10px solid #00004B; /* Azul Marinho */
+        }
+        .imagem-box {
+            width: 100%; height: 200px; background-color: #DFDFDF;
+            display: flex; align-items: center; justify-content: center;
+            color: #792382; font-style: italic; font-size: 14px;
+        }
+        .imagem-box img { width: 100%; height: 100%; object-fit: cover; }
+        .info { padding: 20px; }
+        .tag-reprovação {
+            background: #4A0352; color: white; padding: 4px 12px;
+            border-radius: 20px; font-size: 12px; font-weight: bold;
+            text-transform: uppercase; margin-bottom: 10px; display: inline-block;
+        }
+        h3 { 
+            margin: 0 0 10px 0; color: #00004B; 
+            font-family: 'Poppins', sans-serif; 
+        }
+        p { margin: 0; font-size: 14px; color: #555; line-height: 1.5; }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="voltar">← Voltar para o Início</a>
+<header>
+    <h1 style="font-family: 'Poppins', sans-serif; margin: 0;">Atlas de Artefatos</h1>
+    <p style="margin-top: 5px; opacity: 0.9;">Critérios Visuais para Fiscalização</p>
+</header>
 
-    <header>
-        <h1>Parâmetros de Aceitabilidade</h1>
-        <p>Referência: Instrução Normativa nº 92/2021 (ANVISA)</p>
-    </header>
+<div class="container">
+    <a href="index.html" class="btn-voltar">← Voltar ao Menu Inicial</a>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Teste / Parâmetro</th>
-                <th>Frequência</th>
-                <th>Limite de Tolerância</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><strong>Força de Compressão</strong></td>
-                <td>Semestral</td>
-                <td><span class="tolerancia">11 a 20 kgf</span> (Manual)</td>
-            </tr>
-            <tr>
-                <td><strong>Resolução Espacial</strong></td>
-                <td>Semestral</td>
-                <td><span class="tolerancia">≥ 13 lp/mm</span></td>
-            </tr>
-            <tr>
-                <td><strong>Alinhamento do Campo</strong></td>
-                <td>Semestral</td>
-                <td><span class="tolerancia">≤ 2% da DFF</span></td>
-            </tr>
-            <tr>
-                <td><strong>Qualidade da Imagem (Simulador)</strong></td>
-                <td>Mensal</td>
-                <td>Fibras ≥ 0,90mm | Microcalc. ≥ 0,25mm | Massas ≥ 0,50mm</td>
-            </tr>
-            <tr>
-                <td><strong>Artefatos</strong></td>
-                <td>Semestral</td>
-                <td>Ausência de artefatos que prejudiquem o diagnóstico</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="card-artefato">
+        <div class="imagem-box">
+            <span>[Foto: Linhas de Grade Antidifusora]</span>
+        </div>
+        <div class="info">
+            <span class="tag-reprovação">Reprova se visível</span>
+            <h3>Linhas de Grade</h3>
+            <p>Aparecimento de linhas finas paralelas. Causa: Falha no movimento da grade ou tempo de exposição incompatível. Prejudica a visualização de microcalcificações.</p>
+        </div>
+    </div>
+
+    <div class="card-artefato">
+        <div class="imagem-box">
+            <span>[Foto: Artefatos de Poeira/Sujidade]</span>
+        </div>
+        <div class="info">
+            <span class="tag-reprovação">Limpeza Necessária</span>
+            <h3>Poeira ou Sujidade</h3>
+            <p>Pontos brancos (em sistemas CR/DR). Podem simular patologias. O fiscal deve verificar a rotina de limpeza dos chassis ou do detector.</p>
+        </div>
+    </div>
+
+    <div class="card-artefato">
+        <div class="imagem-box">
+            <span>[Foto: Imagem Fantasma]</span>
+        </div>
+        <div class="info">
+            <span class="tag-reprovação">Falha Técnica</span>
+            <h3>Imagem Fantasma (Ghosting)</h3>
+            <p>Sombra de um exame anterior sobrepondo a imagem atual. Comum em detectores digitais com processamento eletrônico falho.</p>
+        </div>
+    </div>
+
+</div>
 
 </body>
 </html>
