@@ -98,6 +98,46 @@
                 grid-template-columns: 1fr;
             }
         }
+            .footer-oficial {
+        background-color: #748da6; /* Cor azul acinzentada da imagem */
+        color: white;
+        padding: 30px 20px;
+        margin-top: 50px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+    
+    .footer-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .footer-info strong {
+        font-size: 14px;
+    }
+    
+    .mapa-link {
+        color: white;
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    
+    .footer-logo img {
+        max-height: 80px; /* Ajuste conforme o tamanho do logo */
+        filter: brightness(0) invert(1); /* Deixa o logo totalmente branco se for colorido */
+    }
+    
+    /* Ajuste para celular */
+    @media (max-width: 600px) {
+        .footer-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+    }
     </style>
 </head>
 <body>
@@ -141,8 +181,19 @@
     </div>
 </div>
 
-<footer>
-    CEVS - Centro Estadual de Vigilância em Saúde
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
+            Av. Ipiranga 5400<br>
+            Porto Alegre - RS - <a href="https://maps.app.goo.gl/uXfWp3S1Qf9mH8rA7" target="_blank" class="mapa-link">📍 mapa</a><br>
+            90610-000<br>
+            Fone: <strong>51 3288-4000</strong>
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo do Estado Rio Grande do Sul">
+        </div>
+    </div>
 </footer>
 
 </body>
