@@ -3,64 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Critérios de Aceitabilidade - IN 92</title>
+    <title>Parâmetros de Aceitabilidade - CEVS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f4f7f9; }
-        header { background: #00004B; color: white; padding: 15px; text-align: center; border-radius: 8px; margin-bottom: 20px; }
-        .voltar { text-decoration: none; color: #00004B; font-weight: bold; display: inline-block; margin-bottom: 15px; }
-        table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
-        th { background-color: #4A0352; color: white; }
-        tr:hover { background-color: #f1f1f1; }
-        .tolerancia { font-weight: bold; color: #d32f2f; }
-        @media (max-width: 600px) { th, td { font-size: 14px; padding: 8px; } }
+        body { 
+            font-family: 'Segoe UI', Tahoma, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #F2F2F2; 
+        }
+        header { 
+            background-color: #00004B; /* Azul Marinho */
+            color: white; 
+            padding: 25px; 
+            text-align: center;
+            border-bottom: 5px solid #F29509; /* Laranja */
+        }
+        .container { 
+            max-width: 900px; 
+            margin: 20px auto; 
+            padding: 15px;
+        }
+        .btn-voltar {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #4A0352;
+            text-decoration: none;
+            font-weight: bold;
+            font-family: 'Poppins', sans-serif;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            background: white; 
+            border-radius: 8px; 
+            overflow: hidden; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        th, td { 
+            padding: 15px; 
+            text-align: left; 
+            border-bottom: 1px solid #DFDFDF;
+            font-size: 14px;
+        }
+        th { 
+            background-color: #4A0352; /* Roxo */
+            color: white; 
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+        tr:hover { background-color: #F2F2F2; }
+        .tolerancia { 
+            color: #d32f2f; 
+            font-weight: bold; 
+        }
+        .categoria {
+            background-color: #FAAF3F;
+            padding: 5px 10px;
+            border-radius: 4px;
+            color: #000;
+            font-weight: bold;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
 
-    <a href="index.html" class="voltar">← Voltar para o Início</a>
+<header>
+    <h1 style="font-family: 'Poppins', sans-serif; margin: 0;">Tabela de Referência</h1>
+    <p style="margin: 5px 0 0; font-size: 14px;">Instrução Normativa nº 92/2021 - ANVISA</p>
+</header>
 
-    <header>
-        <h1>Parâmetros de Aceitabilidade</h1>
-        <p>Referência: Instrução Normativa nº 92/2021 (ANVISA)</p>
-    </header>
+<div class="container">
+    <a href="index.html" class="btn-voltar">← Voltar ao Início</a>
 
     <table>
         <thead>
             <tr>
                 <th>Teste / Parâmetro</th>
                 <th>Frequência</th>
-                <th>Limite de Tolerância</th>
+                <th>Critério de Aceitabilidade</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><strong>Força de Compressão</strong></td>
-                <td>Semestral</td>
-                <td><span class="tolerancia">11 a 20 kgf</span> (Manual)</td>
+                <td><span class="categoria">Semestral</span></td>
+                <td>Manual: <span class="tolerancia">11 a 20 kgf</span></td>
             </tr>
             <tr>
                 <td><strong>Resolução Espacial</strong></td>
-                <td>Semestral</td>
-                <td><span class="tolerancia">≥ 13 lp/mm</span></td>
+                <td><span class="categoria">Semestral</span></td>
+                <td>Mínimo: <span class="tolerancia">≥ 13 lp/mm</span></td>
             </tr>
             <tr>
                 <td><strong>Alinhamento do Campo</strong></td>
-                <td>Semestral</td>
-                <td><span class="tolerancia">≤ 2% da DFF</span></td>
+                <td><span class="categoria">Semestral</span></td>
+                <td>Desvio: <span class="tolerancia">≤ 2% da DFF</span></td>
             </tr>
             <tr>
-                <td><strong>Qualidade da Imagem (Simulador)</strong></td>
-                <td>Mensal</td>
+                <td><strong>Ruído e Uniformidade</strong></td>
+                <td><span class="categoria">Semestral</span></td>
+                <td>Variação máxima: <span class="tolerancia">≤ 10%</span></td>
+            </tr>
+            <tr>
+                <td><strong>Qualidade de Imagem (Simulador)</strong></td>
+                <td><span class="categoria">Mensal</span></td>
                 <td>Fibras ≥ 0,90mm | Microcalc. ≥ 0,25mm | Massas ≥ 0,50mm</td>
             </tr>
             <tr>
-                <td><strong>Artefatos</strong></td>
-                <td>Semestral</td>
-                <td>Ausência de artefatos que prejudiquem o diagnóstico</td>
+                <td><strong>Vedação da Câmara Escura</strong></td>
+                <td><span class="categoria">Semestral</span></td>
+                <td>Ausência de fugas de luz</td>
             </tr>
         </tbody>
     </table>
+</div>
 
 </body>
 </html>
