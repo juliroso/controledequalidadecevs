@@ -6,6 +6,38 @@
     <title>Parâmetros de Aceitabilidade - CEVS</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
+    .btn-pdf {
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        margin: 30px auto;
+        background-color: #00004B; /* Azul Marinho */
+        color: white;
+        padding: 10px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        border: none;
+        cursor: pointer;
+    }
+    @media print {
+        .btn-voltar, .btn-pdf, header {
+            display: none !important;
+        }
+        body {
+            background-color: white;
+            padding: 0;
+        }
+        .container {
+            max-width: 100%;
+            margin: 0;
+        }
+        table, .card-artefato {
+            box-shadow: none;
+            border: 1px solid #ccc;
+        }
+    }
         body { 
             font-family: 'Segoe UI', Tahoma, sans-serif; 
             margin: 0; 
