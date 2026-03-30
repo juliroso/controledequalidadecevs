@@ -25,84 +25,76 @@
             text-transform: uppercase; 
             margin: 0; 
             font-size: 24px;
+            letter-spacing: 1px;
         }
         
-        /* Main Grid Container for four equal cards in 2x2 */
         .main-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 2 equal columns */
-            gap: 25px; /* Unified equal gap */
-            max-width: 900px; /* Proper width for 2-column layout */
-            margin: 30px auto;
-            padding: 0 15px;
+            grid-template-columns: repeat(2, 1fr); /* 2 colunas iguais */
+            gap: 25px;
+            max-width: 1000px; 
+            margin: 40px auto;
+            padding: 0 20px;
         }
         
-        /* Consistent Card Styling for all four */
         .card {
             background: white;
             border-radius: 8px;
-            padding: 25px;
+            padding: 30px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-left: 8px solid #00004B; /* Azul Marinho */
+            
+            /* Centralização do conteúdo do card */
             display: flex;
-            flex-direction: column; /* Stack elements internally */
-            justify-content: space-between; /* Keep button at bottom */
-            min-height: 250px; /* Balances visually */
-        }
-        
-        /* Uniform Border Left Color (Using Navy as in mockup) */
-        .card-navy {
-            border-left: 8px solid #00004B; /* Blue Navy */
+            flex-direction: column;
+            align-items: center; /* Centraliza horizontalmente */
+            text-align: center;  /* Centraliza o texto */
+            justify-content: space-between; /* Garante espaço entre texto e botão */
+            min-height: 220px;
         }
 
         .card h2 { 
             font-family: 'Poppins', sans-serif; 
             color: #4A0352; 
-            margin-top: 0;
+            margin: 0 0 10px 0;
             font-size: 18px;
         }
-        .card p { font-size: 14px; color: #666; margin-bottom: 20px;}
+        .card p { 
+            font-size: 14px; 
+            color: #666; 
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
         
-        /* Uniform Orange Button Styling for top 3 */
-        .btn-orange {
-            display: block;
-            text-align: center;
-            background-color: #F29509; /* Laranja */
-            color: white;
-            padding: 12px;
+        /* Estilo dos Botões */
+        .btn {
+            display: inline-block;
+            width: 90%; /* Largura quase total dentro do card */
+            padding: 12px 0;
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
             text-transform: uppercase;
-            width: 100%; /* No longer stretched, but fills its 1/2 of grid */
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: opacity 0.2s;
         }
-        /* Special Purple Button for 'Base Legal' */
-        .btn-purple {
-            display: block;
-            text-align: center;
-            background-color: #792382; /* Purple-link-color */
-            color: white;
-            padding: 12px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-            width: 100%;
-        }
+
+        .btn-orange { background-color: #F29509; color: white; }
+        .btn-purple { background-color: #792382; color: white; }
+        .btn:hover { opacity: 0.9; }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             font-size: 12px;
             color: #999;
         }
 
-        /* Mobile Responsiveness: Stack into one column */
+        /* Responsividade para celular */
         @media (max-width: 768px) {
             .main-container {
                 grid-template-columns: 1fr;
-            }
-            .card {
-                min-height: auto;
             }
         }
     </style>
@@ -110,38 +102,47 @@
 <body>
 
 <header>
-    <h1>CONTRÔLE DE QUALIDADE CEVS</h1>
-    <p style="margin-top:10px; opacity: 0.9;">Guia de Inspeção para Fiscais - Mamografia</p>
+    <h1>CONTROLE DE QUALIDADE CEVS</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Guia de Inspeção para Fiscais - Mamografia</p>
 </header>
 
 <div class="main-container">
-    <div class="card card-navy">
-        <h2>Parâmetros e Testes</h2>
-        <p>Consulte os limites de tolerância e frequências da IN 92/2021.</p>
-        <a href="testes.html" class="btn-orange">ACESSAR TABELAS</a>
+    <div class="card">
+        <div>
+            <h2>Parâmetros e Testes</h2>
+            <p>Consulte os limites de tolerância e frequências da IN 92/2021.</p>
+        </div>
+        <a href="testes.html" class="btn btn-orange">ACESSAR TABELAS</a>
     </div>
 
-    <div class="card card-navy">
-        <h2>Guia de Artefatos</h2>
-        <p>Identificação visual de falhas e critérios de reprovação de imagem.</p>
-        <a href="artefatos.html" class="btn-orange">VER IMAGENS</a>
+    <div class="card">
+        <div>
+            <h2>Guia de Artefatos</h2>
+            <p>Identificação visual de falhas e critérios de reprovação de imagem.</p>
+        </div>
+        <a href="artefatos.html" class="btn btn-orange">VER IMAGENS</a>
     </div>
 
-    <div class="card card-navy">
-        <h2>Checklist de Inspeção</h2>
-        <p>Ferramenta rápida para conferência de itens obrigatórios no local.</p>
-        <a href="checklist.html" class="btn-orange">ABRIR CHECKLIST</a>
+    <div class="card">
+        <div>
+            <h2>Checklist de Inspeção</h2>
+            <p>Ferramenta rápida para conferência de itens obrigatórios no local.</p>
+        </div>
+        <a href="checklist.html" class="btn btn-orange">ABRIR CHECKLIST</a>
     </div>
 
-    <div class="card card-navy">
-        <h2>Base Legal</h2>
-        <p>Acesso rápido às RDCs e Instruções Normativas da ANVISA.</p>
-        <a href="legislacao.html" class="btn-purple">CONSULTAR NORMAS</a>
+    <div class="card">
+        <div>
+            <h2>Base Legal</h2>
+            <p>Acesso rápido às RDCs e Instruções Normativas da ANVISA.</p>
+        </div>
+        <a href="legislacao.html" class="btn btn-purple">CONSULTAR NORMAS</a>
     </div>
 </div>
 
 <footer>
     CEVS - Centro Estadual de Vigilância em Saúde
+</footer>
 
 </body>
 </html>
