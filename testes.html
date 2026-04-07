@@ -83,12 +83,60 @@
     </div>
 
     <div class="info-box">
-        <h2>Nota Técnica sobre Resolução Espacial</h2>
-        <p>
-            Diferente dos sistemas convencionais (onde o limite mínimo é fixo em $12 \text{ lp/mm}$), nos sistemas digitais a resolução é limitada pelo tamanho do pixel do detector. Por isso, o fiscal deve confrontar os resultados do laudo de física médica com os valores de referência estabelecidos no <strong>teste de aceite</strong> ou no manual do fabricante.
-        </p>
+        <h2>Parâmetros Específicos do PHANTOM</h2>
+
+        <div class="table-wrapper" style="box-shadow: none; border: 1px solid #eee; margin-top: 15px;">
+            <table style="width: 100%;">
+                <thead style="background-color: #f4f4f4;">
+                    <tr>
+                        <th style="background-color: #666;">Estrutura do Simulador</th>
+                        <th style="background-color: #666;">Tolerância (IN 92)</th>
+                        <th style="background-color: #666;">Critério de Visibilidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fibras</strong></td>
+                        <td><span class="tolerancia">≤ 0,75 mm</span></td>
+                        <td>Mínimo 50% do comprimento visível.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Microcalcificações</strong></td>
+                        <td><span class="tolerancia">≤ 0,32 mm</span></td>
+                        <td>Mínimo 4 de 5 pontos visíveis.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Massas Tumorais</strong></td>
+                        <td><span class="tolerancia">≤ 0,75 mm</span></td>
+                        <td>Aparência circular e localização correta.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discos de Contraste</strong></td>
+                        <td><span class="tolerancia">Conforme Manual</span></td>
+                        <td>Visibilidade do degrau de contraste.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Observações Técnicas e Artefatos:</h3>
+        <p style="font-size: 13px; color: #666;">Itens que o fiscal deve identificar na imagem do teste:</p>
+        <div class="grid-obs">
+            <div class="obs-item">Problema no janelamento</div>
+            <div class="obs-item">Imagem Residual</div>
+            <div class="obs-item">Pontos / Manchas</div>
+            <div class="obs-item">Não Uniformidade</div>
+            <div class="obs-item">Riscos / Ruído</div>
+            <div class="obs-item">IPs identificados incorretamente</div>
+            <div class="obs-item">Excesso de Artefatos</div>
+        </div>
     </div>
+
+    <button onclick="window.print()" class="btn-pdf">📄 Salvar Relatório Completo (PDF)</button>
 </div>
+
+</body>
+</html>
 
 <footer class="footer-oficial">
     <div class="footer-container">
