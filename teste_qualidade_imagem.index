@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Qualidade da Imagem - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        .card-teste h3 { color: #F29509; font-size: 16px; margin: 20px 0 10px; text-transform: uppercase; }
+        
+        /* Lista de Metodologia */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+
+        /* Tabela de Resultados/Tolerância */
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        .tolerancia { color: #d32f2f; font-weight: bold; }
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+        .mapa-link { color: white !important; font-weight: bold; text-decoration: underline; background: none !important; padding: 0; }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: QUALIDADE DA IMAGEM</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia e Avaliação do Phantom</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Avaliar a qualidade da imagem mamográfica a nível diagnóstico.</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação, mensal e após reparos.</p>
+        <p><strong>Equipamento Utilizado:</strong> Fantoma de mama; Chassi e placa de fósforo (ou detector DR).</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li>Posicionar o fantoma de mama sobre o suporte de mama.</li>
+            <li>Ajustar a fotocélula.</li>
+            <li>Adicionar o modo automático e realizar a exposição.</li>
+            <li>Registrar os parâmetros técnicos.</li>
+            <li>Analisar a imagem digitalizada.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>3. Critérios de Tolerância</h2>
+        <p>No fantoma equivalente ao adotado pelo ACR, devem ser respeitados os seguintes limites visuais:</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Estrutura (Tecido Fibroso)</th>
+                    <th>Valores de Referência</th>
+                    <th>Tolerância Técnica</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Fibras</strong></td>
+                    <td>Deve ser visibilizado no mínimo <strong>4 fibras</strong>.</td>
+                    <td><span class="tolerancia">$\le 0,75\text{ mm}$</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Microcalcificações</strong></td>
+                    <td>Deve ser visibilizado pelo menos <strong>3 grupos</strong>.</td>
+                    <td><span class="tolerancia">$\le 0,32\text{ mm}$</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Massas Tumorais</strong></td>
+                    <td>Deve ser visibilizado no mínimo <strong>4 massas</strong>.</td>
+                    <td><span class="tolerancia">$\le 0,75\text{ mm}$</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
+            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
+            Fone: <strong>51 3288-4000</strong>
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
