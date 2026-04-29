@@ -3,167 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Qualidade CEVS - Portal do Fiscal</title>
+    <title>Parâmetros Técnicos (CR/DR) - CEVS</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background-color: #F2F2F2; 
-            color: #333;
-        }
-        header { 
-            background-color: #4A0352; /* Roxo principal */
-            color: white; 
-            padding: 40px 20px; 
-            text-align: center;
-            border-bottom: 5px solid #F29509; /* Detalhe Laranja */
-        }
-        h1 { 
-            font-family: 'Poppins', sans-serif; 
-            text-transform: uppercase; 
-            margin: 0; 
-            font-size: 24px;
-            letter-spacing: 1px;
-        }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #00004B; color: white; padding: 25px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 22px; }
         
-        /* Container principal em grade 2x2 */
-        .main-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 25px;
-            max-width: 1000px; 
-            margin: 40px auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1100px; margin: 20px auto; padding: 15px; }
+        .btn-voltar { display: inline-block; margin-bottom: 15px; color: #4A0352; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
         
-        /* Estilo dos Cards - Alinhados à Esquerda */
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            border-left: 8px solid #00004B; /* Azul Marinho lateral */
-            
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 220px;
-            text-align: left; /* Garante alinhamento à esquerda */
-        }
+        /* Estilo das Tabelas */
+        .table-wrapper { overflow-x: auto; background: white; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 30px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 15px; text-align: left; border-bottom: 1px solid #DFDFDF; font-size: 13px; }
+        th { background-color: #4A0352; color: white; font-family: 'Poppins', sans-serif; text-transform: uppercase; font-size: 12px; }
+        
+        /* Links para Páginas de Teste */
+        .link-teste { color: #00004B; text-decoration: none; font-weight: bold; }
+        .link-teste:hover { text-decoration: underline; color: #F29509; }
 
-        .card h2 { 
-            font-family: 'Poppins', sans-serif; 
-            color: #4A0352; 
-            margin: 0 0 10px 0;
-            font-size: 18px;
-        }
-        .card p { 
-            font-size: 14px; 
-            color: #666; 
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-        
-        /* Estilo dos Botões */
-        .btn {
-            display: block;
-            width: 100%;
-            padding: 12px 0;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            text-transform: uppercase;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            text-align: center;
-            box-sizing: border-box;
-        }
+        /* Tags e Destaques */
+        .tag-digital { background-color: #e3f2fd; color: #0d47a1; padding: 2px 6px; border-radius: 4px; font-weight: bold; font-size: 10px; }
+        .tolerancia { color: #d32f2f; font-weight: bold; }
+        .categoria { background-color: #FAAF3F; padding: 3px 8px; border-radius: 4px; color: #000; font-weight: bold; font-size: 11px; }
 
-        .btn-orange { background-color: #F29509; color: white; }
-        .btn-purple { background-color: #792382; color: white; }
+        .info-box { background: white; padding: 25px; border-radius: 8px; border-left: 10px solid #F29509; margin-top: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        h2 { color: #00004B; font-family: 'Poppins', sans-serif; font-size: 18px; margin-top: 0; }
+        h3 { color: #4A0352; font-size: 16px; margin: 20px 0 10px; font-family: 'Poppins', sans-serif; }
+        
+        /* Grade de Artefatos */
+        .grid-obs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
+        .obs-item { font-size: 13px; color: #555; display: flex; align-items: center; }
+        .obs-item::before { content: "○"; margin-right: 10px; color: #F29509; font-weight: bold; font-size: 16px; }
 
         /* Rodapé Oficial SES/RS */
-        .footer-oficial {
-            background-color: #748da6; /* Azul acinzentado */
-            color: white;
-            padding: 30px 20px;
-            margin-top: 50px;
-            font-size: 13px;
-            line-height: 1.6;
-        }
-        .footer-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .footer-info strong { font-size: 14px; }
-        .mapa-link { 
-            color: white !important; 
-            font-weight: bold; 
-            text-decoration: underline; 
-            background: none !important;
-        }
-        .footer-logo img {
-            max-height: 70px;
-            filter: brightness(0) invert(1); /* Deixa o logo branco */
-        }
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+        .mapa-link { color: white !important; font-weight: bold; text-decoration: underline; background: none !important; }
 
-        /* Responsividade para celular (empilha os cards) */
-        @media (max-width: 768px) {
-            .main-container {
-                grid-template-columns: 1fr;
-            }
-            .footer-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 20px;
-            }
-        }
+        /* Botão Voltar ao Topo */
+        #btnTop { display: none; position: fixed; bottom: 20px; right: 30px; z-index: 99; border: none; background-color: #333; color: white; cursor: pointer; padding: 15px; border-radius: 5px; opacity: 0.8; }
+
+        @media (max-width: 768px) { .grid-obs { grid-template-columns: 1fr; } .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>CONTROLE DE QUALIDADE CEVS</h1>
-    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Guia de Inspeção para Fiscais - Mamografia</p>
+    <h1>Parâmetros Técnicos (CR/DR)</h1>
+    <p style="margin: 5px 0 -5px; font-size: 14px;">Controle de Qualidade em Mamografia - IN 92/2021</p>
 </header>
 
-<div class="main-container">
-    <div class="card">
-        <div>
-            <h2>Parâmetros e Testes</h2>
-            <p>Consulte os limites de tolerância e frequências da IN 92/2021.</p>
-        </div>
-        <a href="testes.html" class="btn btn-orange">ACESSAR TABELAS</a>
+<div class="container">
+    <a href="index.html" class="btn-voltar">← Voltar ao Menu</a>
+
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Teste / Parâmetro</th>
+                    <th>Frequência</th>
+                    <th>Critério de Aceitabilidade</th>
+                    <th>Finalidade Principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Força de Compressão</strong></td>
+                    <td><span class="categoria">Semestral</span></td>
+                    <td><span class="tolerancia">150 N a 200 N</span></td>
+                    <td>Melhor visualização dos achados (redução de sobreposição).</td>
+                </tr>
+                <tr>
+                    <td><strong><a href="teste_dgm.html" target="_blank" class="link-teste">Dose Glandular Média (DGM) 🔗</a></strong></td>
+                    <td><span class="categoria">Anual</span></td>
+                    <td><span class="tolerancia">Vide Anexo II</span></td>
+                    <td>Estimar a dose representativa dos exames no serviço.</td>
+                </tr>
+                <tr>
+                    <td><strong>Resolução Espacial</strong> <span class="tag-digital">DIGITAL</span></td>
+                    <td><span class="categoria">Semestral</span></td>
+                    <td><span class="tolerancia">Conforme Fabricante</span></td>
+                    <td>Garantir detalhamento de microcalcificações.</td>
+                </tr>
+                <tr>
+                    <td><strong>Alinhamento do Campo</strong></td>
+                    <td><span class="categoria">Semestral</span></td>
+                    <td>Desvio: <span class="tolerancia">≤ 2% da DFF</span></td>
+                    <td>Cobertura total do tecido mamário pelo feixe.</td>
+                </tr>
+                <tr>
+                    <td><strong>Uniformidade do Detector</strong> <span class="tag-digital">DIGITAL</span></td>
+                    <td><span class="categoria">Semestral</span></td>
+                    <td>Variação máxima: <span class="tolerancia">≤ 15%</span></td>
+                    <td>Evitar variações de brilho que mascarem lesões.</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <div class="card">
-        <div>
-            <h2>Guia de Artefatos</h2>
-            <p>Identificação visual de falhas e critérios de reprovação de imagem.</p>
+    <div class="info-box">
+        <h2><a href="teste_qualidade_imagem.html" target="_blank" class="link-teste" style="color: #00004B;">Qualidade da Imagem (Phantom) 🔗</a></h2>
+        
+        <div class="table-wrapper" style="box-shadow: none; border: 1px solid #eee; margin-top: 15px;">
+            <table>
+                <thead style="background-color: #f4f4f4;">
+                    <tr>
+                        <th style="background-color: #666;">Estrutura do Simulador</th>
+                        <th style="background-color: #666;">Tolerância (IN 92)</th>
+                        <th style="background-color: #666;">Critério de Visibilidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Fibras</strong></td>
+                        <td><span class="tolerancia">≤ 0,75 mm</span></td>
+                        <td>Mínimo 50% do comprimento visível.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Microcalcificações</strong></td>
+                        <td><span class="tolerancia">≤ 0,32 mm</span></td>
+                        <td>Mínimo 4 de 5 pontos visíveis por grupo.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Massas Tumorais</strong></td>
+                        <td><span class="tolerancia">≤ 0,75 mm</span></td>
+                        <td>Aparência circular e localização correta.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discos de Contraste</strong></td>
+                        <td><span class="tolerancia">Conforme Manual</span></td>
+                        <td>Visibilidade técnica do degrau de contraste.</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <a href="artefatos.html" class="btn btn-orange">VER IMAGENS</a>
-    </div>
 
-    <div class="card">
-        <div>
-            <h2>Checklist de Inspeção</h2>
-            <p>Ferramenta rápida para conferência de itens obrigatórios no local.</p>
+        <h3>Observações Técnicas e Artefatos:</h3>
+        <div class="grid-obs">
+            <div class="obs-item">Problema no janelamento</div>
+            <div class="obs-item">Imagem Residual</div>
+            <div class="obs-item">Pontos / Manchas</div>
+            <div class="obs-item">Não Uniformidade</div>
+            <div class="obs-item">Riscos / Ruído</div>
+            <div class="obs-item">IPs identificados incorretamente</div>
+            <div class="obs-item">Excesso de Artefatos</div>
         </div>
-        <a href="checklist.html" class="btn btn-orange">ABRIR CHECKLIST</a>
-    </div>
-
-    <div class="card">
-        <div>
-            <h2>Base Legal</h2>
-            <p>Acesso rápido às RDCs e Instruções Normativas da ANVISA.</p>
-        </div>
-        <a href="legislacao.html" class="btn btn-purple">CONSULTAR NORMAS</a>
     </div>
 </div>
 
@@ -171,16 +159,27 @@
     <div class="footer-container">
         <div class="footer-info">
             <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
-            Av. Ipiranga 5400<br>
-            Porto Alegre - RS - <a href="https://maps.app.goo.gl/3X89" target="_blank" class="mapa-link">📍 mapa</a><br>
-            90610-000<br>
+            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
             Fone: <strong>51 3288-4000</strong>
         </div>
         <div class="footer-logo">
-            <img src="logo-rs.png" alt="Governo do Estado Rio Grande do Sul">
+            <img src="logo-rs.png" alt="Governo RS">
         </div>
     </div>
 </footer>
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" id="btnTop" title="Voltar ao Topo">▲</button>
+
+<script>
+    window.onscroll = function() {
+        var btn = document.getElementById("btnTop");
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    };
+</script>
 
 </body>
 </html>
