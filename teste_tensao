@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Tensão do Tubo - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Lista de Metodologia */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+        .mapa-link { color: white !important; font-weight: bold; text-decoration: underline; background: none !important; padding: 0; }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: TENSÃO DO TUBO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Exatidão e Reprodutibilidade (IN 92/2021)</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Avaliar a exatidão e a reprodutibilidade da tensão de pico do tubo do mamógrafo.</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
+        <p><strong>Equipamento Utilizado:</strong> Analisador/multimedidor calibrado.</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li>Posicionar o instrumento de medição sobre o suporte de mama.</li>
+            <li>Selecionar o modo manual de operação do mamógrafo.</li>
+            <li>Definir valores de tensão (kVp) utilizados clinicamente na rotina.</li>
+            <li>Realizar as exposições sucessivas.</li>
+            <li>Registrar os valores lidos pelo multimedidor.</li>
+            <li>Calcular o valor final de tensão aplicando o fator de calibração (Nk) do certificado do equipamento de medição.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>3. Critérios de Aceitabilidade e Restrição</h2>
+        <p>Os valores apresentados no laudo de física médica devem respeitar os limites da IN 92/2021:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Exatidão do Indicador</strong></td>
+                        <td><span class="aceitavel">&lt; 5% do valor nominal</span></td>
+                        <td><span class="restricao">&gt; 10% do valor nominal</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reprodutibilidade</strong></td>
+                        <td><span class="aceitavel">Coeficiente de Variação (CV) ≤ 0,05</span></td>
+                        <td><span class="restricao">Coeficiente de Variação (CV) &gt; 0,1</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: O fiscal deve conferir se o laudo apresenta as leituras para diferentes faixas de kVp utilizadas na clínica (ex: 26, 28 e 30 kVp) e se os cálculos de variação estão dentro dos limites.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
+            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
+            Fone: <strong>51 3288-4000</strong>
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
