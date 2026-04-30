@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Tempo Máximo de Exposição - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Lista de Metodologia */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+        .mapa-link { color: white !important; font-weight: bold; text-decoration: underline; background: none !important; padding: 0; }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: TEMPO MÁXIMO DE EXPOSIÇÃO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia e Valores da IN 92/2021</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Avaliar o tempo máximo de exposição do equipamento de mamografia, evitando borramento cinético e super-exposição.</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
+        <p><strong>Equipamento Utilizado:</strong> Analisador/multimedidor calibrado.</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li>Posicionar o simulador de PMMA de 45 mm sobre o suporte de mama.</li>
+            <li>Realizar uma exposição no modo automático.</li>
+            <li>Registrar os parâmetros técnicos escolhidos pelo equipamento.</li>
+            <li>Substituir o simulador de PMMA pelo instrumento de medição (multimedidor).</li>
+            <li>Selecionar a técnica já registrada e realizar a exposição.</li>
+            <li>Registrar o valor de tempo de exposição medido.</li>
+            <li>O valor do tempo de exposição final é calculado conforme o fator Nk obtido do certificado de calibração do instrumento.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>3. Critérios de Aceitabilidade e Restrição</h2>
+        <p>Para um simulador de 4,5 cm de PMMA, os valores lidos no laudo devem respeitar os seguintes limites estabelecidos pela IN 92/2021:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Modo de Operação</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Contato</strong></td>
+                        <td><span class="aceitavel">t ≤ 1,5 s</span></td>
+                        <td><span class="restricao">t &gt; 2,0 s</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Magnificação</strong></td>
+                        <td><span class="aceitavel">t ≤ 2,0 s</span></td>
+                        <td><span class="restricao">t &gt; 3,0 s</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: Tempos acima do nível de restrição indicam falha no controle automático ou desgaste do tubo, comprometendo a qualidade diagnóstica por movimento da paciente durante a exposição.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
+            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
+            Fone: <strong>51 3288-4000</strong>
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
