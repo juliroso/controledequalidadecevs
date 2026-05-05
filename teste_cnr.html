@@ -25,7 +25,7 @@
         .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
         .lista-interna li { margin-bottom: 5px; color: #555; }
 
-        /* Nova Formatação da Caixa de Fórmula */
+        /* Formatação das Caixas de Fórmula */
         .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 20px; margin: 20px 0; border-radius: 4px; }
         .formula-math { font-size: 18px; font-weight: bold; color: #00004B; text-align: center; margin-bottom: 15px; font-family: 'Courier New', Courier, monospace; letter-spacing: 1px; }
         .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; }
@@ -72,46 +72,46 @@
         <h2>2. Metodologia de Aquisição (Passo a Passo)</h2>
         <ol class="passo-a-passo">
             <li>Posicionar o simulador de PMMA com espessura de 20 mm sobre o suporte da mama (bucky).</li>
-            <li>Adicionar sobre o simulador de PMMA a placa de 0,2 mm de espessura de alumínio a 4 cm (ou 6 cm) da borda da parede torácica.</li>
+            <li>Adicionar sobre o simulador de PMMA a placa de 0,2 mm de espessura de alumínio a 4 cm da borda da parede torácica.</li>
             <li>Selecionar o modo automático de exposição.</li>
             <li>Realizar uma exposição e registrar os parâmetros técnicos.</li>
             <li>Repetir o procedimento adicionando mais placas para variar a espessura total do simulador de PMMA (30, 40, 45, 50, 60 e 70 mm).</li>
         </ol>
     </div>
 
-    <!-- Metodologia de Cálculo (Novo) -->
+    <!-- Metodologia de Cálculo -->
     <div class="card-teste">
-        <h2>3. Metodologia de Cálculo (ROIs e Fórmula)</h2>
-        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">Após a aquisição, o físico analisa as imagens brutas (RAW) no software de controle de qualidade e executa os seguintes passos de cálculo:</p>
+        <h2>3. Metodologia de Cálculo (RCR Relativa)</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">Após a aquisição, as imagens brutas (RAW) são analisadas no software. O cálculo da RCR Relativa utiliza o protocolo de comparação com uma imagem de referência:</p>
         
         <ol class="passo-a-passo">
-            <li>O avaliador demarca duas <strong>Regiões de Interesse (ROIs)</strong> distintas na imagem:
+            <li>Demarcam-se duas <strong>Regiões de Interesse (ROIs)</strong> na imagem central:
                 <ul class="lista-interna">
-                    <li><strong>ROI-A (Alumínio):</strong> Demarcada exatamente sobre a área do objeto de contraste (alumínio) para extrair o Valor Médio do Pixel (VMP<sub>A</sub>).</li>
-                    <li><strong>ROI-B (Fundo):</strong> Demarcada fora da placa de alumínio (fundo do PMMA) para extrair o Valor Médio do Pixel do fundo (VMP<sub>B</sub>) e o seu respectivo Desvio Padrão (DP<sub>B</sub> ou &sigma;).</li>
+                    <li><strong>ROI do Fundo:</strong> Para extrair o Valor Médio do Pixel do fundo e o seu Desvio Padrão.</li>
+                    <li><strong>ROI do Contraste:</strong> Sobre o objeto de contraste para extrair o seu respectivo Valor Médio do Pixel.</li>
                 </ul>
             </li>
-            <li>Com esses dados extraídos de cada espessura (20 a 70 mm), aplica-se a fórmula matemática da Razão Contraste Ruído (RCR ou CNR):</li>
+            <li>Aplica-se a fórmula da estimativa da relação contraste-ruído (RCR<sub>i</sub>), que compara os valores da imagem de referência (índice 0) com as imagens subsequentes (índice i):</li>
         </ol>
 
         <!-- Caixa de Cálculo Formatada -->
         <div class="caixa-calculo">
             <div class="formula-math">
-                RCR = ( VMP<sub>Fundo</sub> - VMP<sub>Aluminio</sub> ) / DP<sub>Fundo</sub>
+                RCR<sub>i</sub> = ( VMP<sub>0</sub> - VMP<sub>i</sub> ) / &radic;[ ( DTP<sub>0</sub>&sup2; + DTP<sub>i</sub>&sup2; ) / 2 ]
             </div>
             <div class="formula-legenda">
                 <strong>Onde:</strong><br>
-                • <strong>VMP<sub>Fundo</sub></strong> = Valor Médio do Pixel (ou PVI) na ROI do PMMA (fundo).<br>
-                • <strong>VMP<sub>Aluminio</sub></strong> = Valor Médio do Pixel (ou PVI) na ROI do Alumínio.<br>
-                • <strong>DP<sub>Fundo</sub></strong> = Desvio Padrão do ruído obtido na ROI do fundo (&sigma;).
+                • <strong>VMP<sub>0</sub></strong> e <strong>DTP<sub>0</sub></strong> = Valor Médio do Pixel e Desvio Padrão extraídos da imagem de <strong>referência</strong>.<br>
+                • <strong>VMP<sub>i</sub></strong> e <strong>DTP<sub>i</sub></strong> = Valor Médio do Pixel e Desvio Padrão extraídos da ROI nas imagens <strong>subsequentes</strong> avaliadas.
             </div>
         </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Desta forma, a Razão Contraste Ruído medida para cada espessura de PMMA é avaliada em termos percentuais (relativos) frente à qualidade base do equipamento.</p>
     </div>
 
     <!-- Tolerância e Resultados (Anexo III da IN 92) -->
     <div class="card-teste" style="border-left-color: #F29509;">
         <h2>4. Critérios de Tolerância (IN 92 - Anexo III)</h2>
-        <p>A Razão Contraste Ruído Relativa (CNR Relativa) apresentada no laudo do físico deve respeitar os seguintes limites:</p>
+        <p>A Razão Contraste Ruído Relativa (CNR Relativa) apresentada no laudo do físico deve respeitar os seguintes limites percentuais:</p>
         
         <div class="table-wrapper">
             <table>
@@ -161,7 +161,6 @@
                 </tbody>
             </table>
         </div>
-        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: Caso o equipamento atinja o Nível de Restrição em qualquer uma das espessuras, o uso clínico deve ser suspenso até a calibração do detector DR ou revisão das placas de fósforo CR.</p>
     </div>
 </div>
 
