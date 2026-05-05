@@ -23,6 +23,9 @@
         .passo-a-passo li { margin-bottom: 10px; }
         .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
 
+        /* Formula Box */
+        .formula-box { background-color: #f8f9fa; border: 1px dashed #ccc; padding: 15px; text-align: center; margin: 20px 0; border-radius: 5px; font-family: 'Courier New', Courier, monospace; font-weight: bold; font-size: 16px; color: #00004B; }
+
         /* Tabela de Resultados/Tolerância */
         .table-wrapper { overflow-x: auto; margin-top: 15px; }
         table { width: 100%; border-collapse: collapse; }
@@ -30,8 +33,8 @@
         th { background-color: #f9f9f9; color: #333; font-weight: bold; }
         
         /* Cores de Tolerância */
-        .aceitavel { color: #2e7d32; font-weight: bold; } /* Verde */
-        .restricao { color: #d32f2f; font-weight: bold; } /* Vermelho */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
 
         /* Rodapé Oficial */
         .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
@@ -46,43 +49,53 @@
 
 <header>
     <h1>TESTE: RAZÃO CONTRASTE RUÍDO (CNR)</h1>
-    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia e Valores do Anexo III - IN 92/2021</p>
+    <p style="margin:-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia Digital e Anexo III da IN 92/2021</p>
 </header>
 
 <div class="container">
     <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
 
+    <!-- Informações Básicas -->
     <div class="card-teste">
         <h2>1. Dados do Teste</h2>
-        <p><strong>Objetivo:</strong> Avaliar se a quantidade de ruído no contraste da imagem está adequada (aplicável a sistemas CR e DR).</p>
+        <p><strong>Objetivo:</strong> Avaliar se a quantidade de ruído e o contraste da imagem digital estão adequados, garantindo a distinção entre diferentes tecidos.</p>
         <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
-        <p><strong>Equipamento Utilizado:</strong> Analisador/multimedidor e Simuladores de PMMA.</p>
+        <p><strong>Equipamento Utilizado:</strong> Placas de PMMA e um objeto de contraste (alumínio de 0,2 mm).</p>
     </div>
 
+    <!-- Metodologia e Cálculo -->
     <div class="card-teste">
-        <h2>2. Metodologia (Passo a Passo)</h2>
+        <h2>2. Metodologia e Cálculo (ROIs)</h2>
         <ol class="passo-a-passo">
-            <li>Posicionar o simulador de PMMA com espessura de 20 mm sobre o suporte da mama.</li>
-            <li>Adicionar sobre o simulador de PMMA a placa de 0,2 mm de espessura de alumínio a 4 cm da borda da parede torácica.</li>
-            <li>Selecionar o modo automático de exposição.</li>
-            <li>Realizar uma exposição e registrar os parâmetros técnicos.</li>
-            <li>Medir, na imagem gerada, o <strong>Valor Médio de Pixel (VMP)</strong> da região em torno da placa de alumínio (fundo) e o seu <strong>Desvio Padrão (DP)</strong>.</li>
-            <li>Medir o <strong>VMP</strong> e o <strong>DP</strong> diretamente sobre a área da placa de alumínio.</li>
-            <li>Repetir o procedimento variando a espessura do simulador de PMMA (30, 40, 45, 50, 60 e 70 mm).</li>
+            <li>Posicionar o simulador de PMMA (variando de 2 a 7 cm) sobre o bucky do equipamento.</li>
+            <li>Adicionar a placa de alumínio sobre o PMMA (geralmente a 4 cm ou 6 cm da parede torácica).</li>
+            <li>Realizar a exposição no modo automático e obter a imagem bruta (RAW).</li>
+            <li>No software de avaliação, o físico demarca duas <strong>Regiões de Interesse (ROIs)</strong>:
+                <ul>
+                    <li><strong>ROI-A:</strong> Dentro da região do alumínio.</li>
+                    <li><strong>ROI-B:</strong> No fundo da imagem, fora da região do alumínio.</li>
+                </ul>
+            </li>
+            <li>Extrair os Valores de Pixel (PVI ou VMP) e o Desvio Padrão do fundo (&sigma;). A Razão Contraste Ruído (RCR) é calculada pela fórmula:</li>
         </ol>
+
+        <div class="formula-box">
+            RCR = | PVI_fundo - PVI_aluminio | / Desvio_Padrao_fundo
+        </div>
     </div>
 
+    <!-- Tolerância e Resultados (Anexo III da IN 92) -->
     <div class="card-teste" style="border-left-color: #F29509;">
         <h2>3. Critérios de Tolerância (IN 92 - Anexo III)</h2>
-        <p>A Razão Contraste Ruído Relativa (CNR Relativa) apresentada no laudo deve respeitar os seguintes limites para não configurar infração:</p>
+        <p>A Razão Contraste Ruído Relativa (CNR Relativa) calculada no laudo do físico deve respeitar os seguintes limites visando não comprometer o diagnóstico:</p>
         
         <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
                         <th>Espessura de PMMA (cm)</th>
-                        <th>Nível de Tolerância (CNRrel)</th>
-                        <th>Nível de Restrição (CNRrel)</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -124,7 +137,7 @@
                 </tbody>
             </table>
         </div>
-        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: Caso o equipamento atinja o Nível de Restrição em qualquer uma das espessuras, o uso clínico deve ser suspenso até a correção (calibração do detector).</p>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: Caso o equipamento atinja o Nível de Restrição em qualquer uma das espessuras, o uso clínico deve ser suspenso até a calibração do detector DR ou revisão das placas de fósforo CR.</p>
     </div>
 </div>
 
