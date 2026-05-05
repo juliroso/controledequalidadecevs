@@ -6,6 +6,10 @@
     <title>Teste: Razão Contraste Ruído (CNR) - CEVS</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Script do MathJax para renderizar fórmulas em estilo LaTeX -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
         header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
@@ -25,10 +29,10 @@
         .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
         .lista-interna li { margin-bottom: 5px; color: #555; }
 
-        /* Formatação das Caixas de Fórmula */
-        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 20px; margin: 20px 0; border-radius: 4px; }
-        .formula-math { font-size: 18px; font-weight: bold; color: #00004B; text-align: center; margin-bottom: 15px; font-family: 'Courier New', Courier, monospace; letter-spacing: 1px; }
-        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; }
+        /* Formatação da Caixa de Fórmula */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 110%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
 
         /* Tabela de Resultados/Tolerância */
         .table-wrapper { overflow-x: auto; margin-top: 15px; }
@@ -94,10 +98,10 @@
             <li>Aplica-se a fórmula da estimativa da relação contraste-ruído (RCR<sub>i</sub>), que compara os valores da imagem de referência (índice 0) com as imagens subsequentes (índice i):</li>
         </ol>
 
-        <!-- Caixa de Cálculo Formatada -->
+        <!-- Caixa de Cálculo Formatada com LaTeX (MathJax) -->
         <div class="caixa-calculo">
             <div class="formula-math">
-                RCR<sub>i</sub> = ( VMP<sub>0</sub> - VMP<sub>i</sub> ) / &radic;[ ( DTP<sub>0</sub>&sup2; + DTP<sub>i</sub>&sup2; ) / 2 ]
+                $$ RCR_i = \frac{VMP_0 - VMP_i}{\sqrt{\frac{DTP_0^2 + DTP_i^2}{2}}} $$
             </div>
             <div class="formula-legenda">
                 <strong>Onde:</strong><br>
