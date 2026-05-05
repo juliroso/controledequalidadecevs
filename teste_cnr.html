@@ -18,13 +18,17 @@
         .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
         .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
         
-        /* Lista de Metodologia */
+        /* Listas */
         .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
         .passo-a-passo li { margin-bottom: 10px; }
         .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
 
-        /* Formula Box */
-        .formula-box { background-color: #f8f9fa; border: 1px dashed #ccc; padding: 15px; text-align: center; margin: 20px 0; border-radius: 5px; font-family: 'Courier New', Courier, monospace; font-weight: bold; font-size: 16px; color: #00004B; }
+        /* Nova Formatação da Caixa de Fórmula */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 20px; margin: 20px 0; border-radius: 4px; }
+        .formula-math { font-size: 18px; font-weight: bold; color: #00004B; text-align: center; margin-bottom: 15px; font-family: 'Courier New', Courier, monospace; letter-spacing: 1px; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; }
 
         /* Tabela de Resultados/Tolerância */
         .table-wrapper { overflow-x: auto; margin-top: 15px; }
@@ -49,7 +53,7 @@
 
 <header>
     <h1>TESTE: RAZÃO CONTRASTE RUÍDO (CNR)</h1>
-    <p style="margin:-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia Digital e Anexo III da IN 92/2021</p>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia Digital e Anexo III da IN 92/2021</p>
 </header>
 
 <div class="container">
@@ -58,36 +62,56 @@
     <!-- Informações Básicas -->
     <div class="card-teste">
         <h2>1. Dados do Teste</h2>
-        <p><strong>Objetivo:</strong> Avaliar se a quantidade de ruído e o contraste da imagem digital estão adequados, garantindo a distinção entre diferentes tecidos.</p>
+        <p><strong>Objetivo:</strong> Avaliar se a quantidade de ruído e o contraste da imagem digital estão adequados, garantindo a distinção correta entre diferentes tecidos na mama.</p>
         <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
-        <p><strong>Equipamento Utilizado:</strong> Placas de PMMA e um objeto de contraste (alumínio de 0,2 mm).</p>
+        <p><strong>Equipamento Utilizado:</strong> Placas de PMMA (simulador) e um objeto de contraste (placa de alumínio de 0,2 mm).</p>
     </div>
 
-    <!-- Metodologia e Cálculo -->
+    <!-- Metodologia de Aquisição -->
     <div class="card-teste">
-        <h2>2. Metodologia e Cálculo (ROIs)</h2>
+        <h2>2. Metodologia de Aquisição (Passo a Passo)</h2>
         <ol class="passo-a-passo">
-            <li>Posicionar o simulador de PMMA (variando de 2 a 7 cm) sobre o bucky do equipamento.</li>
-            <li>Adicionar a placa de alumínio sobre o PMMA (geralmente a 4 cm ou 6 cm da parede torácica).</li>
-            <li>Realizar a exposição no modo automático e obter a imagem bruta (RAW).</li>
-            <li>No software de avaliação, o físico demarca duas <strong>Regiões de Interesse (ROIs)</strong>:
-                <ul>
-                    <li><strong>ROI-A:</strong> Dentro da região do alumínio.</li>
-                    <li><strong>ROI-B:</strong> No fundo da imagem, fora da região do alumínio.</li>
+            <li>Posicionar o simulador de PMMA com espessura de 20 mm sobre o suporte da mama (bucky).</li>
+            <li>Adicionar sobre o simulador de PMMA a placa de 0,2 mm de espessura de alumínio a 4 cm (ou 6 cm) da borda da parede torácica.</li>
+            <li>Selecionar o modo automático de exposição.</li>
+            <li>Realizar uma exposição e registrar os parâmetros técnicos.</li>
+            <li>Repetir o procedimento adicionando mais placas para variar a espessura total do simulador de PMMA (30, 40, 45, 50, 60 e 70 mm).</li>
+        </ol>
+    </div>
+
+    <!-- Metodologia de Cálculo (Novo) -->
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo (ROIs e Fórmula)</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">Após a aquisição, o físico analisa as imagens brutas (RAW) no software de controle de qualidade e executa os seguintes passos de cálculo:</p>
+        
+        <ol class="passo-a-passo">
+            <li>O avaliador demarca duas <strong>Regiões de Interesse (ROIs)</strong> distintas na imagem:
+                <ul class="lista-interna">
+                    <li><strong>ROI-A (Alumínio):</strong> Demarcada exatamente sobre a área do objeto de contraste (alumínio) para extrair o Valor Médio do Pixel (VMP<sub>A</sub>).</li>
+                    <li><strong>ROI-B (Fundo):</strong> Demarcada fora da placa de alumínio (fundo do PMMA) para extrair o Valor Médio do Pixel do fundo (VMP<sub>B</sub>) e o seu respectivo Desvio Padrão (DP<sub>B</sub> ou &sigma;).</li>
                 </ul>
             </li>
-            <li>Extrair os Valores de Pixel (PVI ou VMP) e o Desvio Padrão do fundo (&sigma;). A Razão Contraste Ruído (RCR) é calculada pela fórmula:</li>
+            <li>Com esses dados extraídos de cada espessura (20 a 70 mm), aplica-se a fórmula matemática da Razão Contraste Ruído (RCR ou CNR):</li>
         </ol>
 
-        <div class="formula-box">
-            RCR = | PVI_fundo - PVI_aluminio | / Desvio_Padrao_fundo
+        <!-- Caixa de Cálculo Formatada -->
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                RCR = ( VMP<sub>Fundo</sub> - VMP<sub>Aluminio</sub> ) / DP<sub>Fundo</sub>
+            </div>
+            <div class="formula-legenda">
+                <strong>Onde:</strong><br>
+                • <strong>VMP<sub>Fundo</sub></strong> = Valor Médio do Pixel (ou PVI) na ROI do PMMA (fundo).<br>
+                • <strong>VMP<sub>Aluminio</sub></strong> = Valor Médio do Pixel (ou PVI) na ROI do Alumínio.<br>
+                • <strong>DP<sub>Fundo</sub></strong> = Desvio Padrão do ruído obtido na ROI do fundo (&sigma;).
+            </div>
         </div>
     </div>
 
     <!-- Tolerância e Resultados (Anexo III da IN 92) -->
     <div class="card-teste" style="border-left-color: #F29509;">
-        <h2>3. Critérios de Tolerância (IN 92 - Anexo III)</h2>
-        <p>A Razão Contraste Ruído Relativa (CNR Relativa) calculada no laudo do físico deve respeitar os seguintes limites visando não comprometer o diagnóstico:</p>
+        <h2>4. Critérios de Tolerância (IN 92 - Anexo III)</h2>
+        <p>A Razão Contraste Ruído Relativa (CNR Relativa) apresentada no laudo do físico deve respeitar os seguintes limites:</p>
         
         <div class="table-wrapper">
             <table>
