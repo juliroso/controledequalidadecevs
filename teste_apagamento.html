@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Efetividade do Ciclo de Apagamento - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+        .mapa-link { color: white !important; font-weight: bold; text-decoration: underline; background: none !important; padding: 0; }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: EFETIVIDADE DO CICLO DE APAGAMENTO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia Digital (CR/DR) e Protocolo Espanhol (SEFM)</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <!-- Informações Básicas -->
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Avaliar a efetividade do ciclo de apagamento do receptor de imagem, garantindo que não haja acúmulo de imagens remanescentes (latentes) que possam interferir em exames subsequentes.</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
+        <p><strong>Equipamento Utilizado:</strong> Receptor de imagem (placas de fósforo CR ou detectores de painel plano DR) utilizados na rotina clínica do serviço.</p>
+    </div>
+
+    <!-- Metodologia -->
+    <div class="card-teste">
+        <h2>2. Metodologia de Avaliação</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">De acordo com os protocolos internacionais (como o Espanhol SEFM-SEPR-SERAM), a verificação deste parâmetro exige os seguintes passos:</p>
+        
+        <ol class="passo-a-passo">
+            <li>Expor o receptor de imagem com um objeto de alto contraste (ex: bloco de acrílico com chumbo ou degrau de alumínio) utilizando uma técnica clínica de alta dose.</li>
+            <li>Realizar o processo normal de leitura (digitalização) do chassi/receptor.</li>
+            <li>Acionar a função de "Zerar" (Apagamento Primário / <em>Primary Erasure</em>) do receptor de imagem no equipamento leitor.</li>
+            <li>Realizar uma nova leitura (digitalização) da mesma placa, <strong>sem realizar uma nova exposição a raios X</strong>.</li>
+            <li>Analisar a imagem resultante desta segunda leitura no monitor de laudo, aplicando o máximo de ajuste de janelamento (Window/Level) para buscar resquícios da exposição anterior.</li>
+        </ol>
+    </div>
+
+    <!-- Observações Técnicas (Protocolo Espanhol) -->
+    <div class="card-teste" style="border-left-color: #748da6;">
+        <h2>3. Observações Clínicas (Sistemas CR)</h2>
+        <p>Conforme estabelecido no Protocolo Espanhol, as placas dos sistemas CR devem ser submetidas a um apagamento primário diariamente, antes de iniciar os exames em pacientes. Isso evita o acúmulo de imagens remanescentes provocadas pela radiação de fundo natural que diminui a sensibilidade da placa. O tempo que a leitora CR gasta no apagamento primário deve ser superior ao apagamento secundário (rápido) para garantir a sua efetividade.</p>
+    </div>
+
+    <!-- Tolerância e Resultados -->
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>4. Critérios de Tolerância</h2>
+        <p>A presença de uma imagem residual ("imagem fantasma") compromete o contraste de exames subsequentes, podendo mascarar ou simular lesões.</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Presença de Imagem Latente</strong></td>
+                        <td><span class="aceitavel">Ausência de imagem residual e artefatos. Imagem deve ser uniforme.</span></td>
+                        <td><span class="restricao">Presença visível de imagem fantasma ou artefatos.</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: Se o laudo acusar a presença de imagem residual, o equipamento de leitura (CR) pode estar com as lâmpadas de apagamento queimadas/fracas ou o detector de painel plano (DR) necessita de calibração eletrônica imediata.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
+            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
+            Fone: <strong>51 3288-4000</strong>
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
