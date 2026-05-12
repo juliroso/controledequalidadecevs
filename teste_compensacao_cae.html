@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Compensação do CAE - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+
+        /* Formatação da Caixa de Fórmula */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: COMPENSAÇÃO DO CAE</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Desempenho por Espessura - IN 92/2021</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Avaliar a capacidade do Controle Automático de Exposição (CAE) em manter a constância da imagem (nível de exposição no detetor) ao variar a espessura do objeto simulado.</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
+        <p><strong>Materiais:</strong> Simuladores de PMMA (20, 30, 40, 50 e 60 mm) e dosímetro calibrado.</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia de Aquisição</h2>
+        <ol class="passo-a-passo">
+            <li>Posicionar o simulador de PMMA sobre o suporte de imagem (bucky), começando pela espessura de 20 mm.</li>
+            <li>Colocar o detetor de radiação do multimedidor sobre o suporte, garantindo que o sensor do CAE esteja coberto pelo simulador.</li>
+            <li>Selecionar o modo de exposição <strong>totalmente automático</strong> (Auto-kV e Auto-mAs).</li>
+            <li>Realizar uma exposição para cada espessura de PMMA estabelecida (20 a 60 mm).</li>
+            <li>Registar para cada disparo: a tensão (kV), a carga (mAs) e o Kerma no ar medido.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo</h2>
+        <p style="font-size: 14px; color: #444;">A compensação é verificada através do desvio percentual das leituras de Kerma no ar (ou sinal do detetor) em relação ao valor médio obtido para todas as espessuras:</p>
+        
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ \text{Desvio} (\%) = \frac{K_i - \bar{K}}{\bar{K}} \times 100 $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>\(K_i\):</strong> Kerma no ar medido para a espessura \(i\).<br>
+                • <strong>\(\bar{K}\):</strong> Média aritmética dos valores de Kerma de todas as espessuras testadas.
+            </div>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>4. Critérios de Tolerância (IN 92/2021)</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Compensação do CAE</strong></td>
+                        <td><span class="aceitavel">Variação < 15% do valor médio</span></td>
+                        <td><span class="restricao">Variação > 30% do valor médio</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota Técnica: Este teste garante que o sistema digital recebe uma exposição constante, evitando imagens com ruído excessivo em mamas densas ou doses desnecessárias em mamas finas.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
