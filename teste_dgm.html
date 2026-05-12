@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste: Dose Glandular Média - CEVS</title>
+    <title>Teste: Dose Glandular Média (DGM) - CEVS</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
         header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
@@ -17,25 +20,31 @@
         /* Cards de Informação */
         .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
         .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
-        .card-teste h3 { color: #F29509; font-size: 16px; margin: 20px 0 10px; text-transform: uppercase; }
         
-        /* Lista de Metodologia */
+        /* Listas */
         .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
         .passo-a-passo li { margin-bottom: 10px; }
         .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Formatação da Caixa de Fórmula */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
 
         /* Tabela de Resultados/Tolerância */
         .table-wrapper { overflow-x: auto; margin-top: 15px; }
         table { width: 100%; border-collapse: collapse; }
         th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
         th { background-color: #f9f9f9; color: #333; font-weight: bold; }
-        .tolerancia { color: #d32f2f; font-weight: bold; }
+        
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
 
-        /* Rodapé Oficial */
         .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
         .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
-        .mapa-link { color: white !important; font-weight: bold; text-decoration: underline; background: none !important; padding: 0; }
 
         @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
     </style>
@@ -44,101 +53,114 @@
 
 <header>
     <h1>TESTE: DOSE GLANDULAR MÉDIA (DGM)</h1>
-    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia e Valores de Referência</p>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Fatores de Dance et al. e Anexo II da IN 92/2021</p>
 </header>
 
 <div class="container">
     <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
 
     <div class="card-teste">
-        <h2>1. Dados do Teste</h2>
-        <p><strong>Objetivo:</strong> Estimar a dose glandular média da mama para adotá-la como representativa dos exames praticados no serviço.</p>
-        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
-        <p><strong>Equipamento Utilizado:</strong> Analisador/multimedidor (ex: Piranha) e Simulador de PMMA.</p>
+        <h2>1. Objetivo e Materiais</h2>
+        <p>Estimar a dose representativa recebida pelo tecido glandular da mama durante exames clínicos de rotina. É o parâmetro de proteção radiológica mais crítico em mamografia.</p>
+        <ul class="lista-interna">
+            <li><strong>Materiais:</strong> Simuladores de PMMA (20 a 70 mm) e dosímetro (câmara de ionização ou estado sólido) devidamente calibrado.</li>
+            <li><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</li>
+        </ul>
     </div>
 
     <div class="card-teste">
-        <h2>2. Metodologia (Passo a Passo)</h2>
+        <h2>2. Metodologia de Aquisição</h2>
         <ol class="passo-a-passo">
-            <li>Posicionar o simulador PMMA de 20 mm sobre o suporte de mama.</li>
-            <li>Acionar o modo automático de exposição.</li>
-            <li>Realizar uma exposição.</li>
-            <li>Registrar os valores dos parâmetros técnicos.</li>
-            <li>Repetir o procedimento para o simulador de PMMA de 30, 40, 45, 50, 60 e 70 mm.</li>
-            <li>Acionar o modo manual de exposição.</li>
-            <li>Selecionar os parâmetros registrados para cada espessura do simulador de PMMA.</li>
-            <li>Registrar os valores de kerma incidente.</li>
-            <li>O valor de Kerma no ar é calculado conforme fator Nk obtido do certificado de calibração.</li>
+            <li>Posicionar o instrumento de medição (dosímetro) sobre o suporte de mama, de acordo com as instruções do fabricante do detetor.</li>
+            <li>Realizar uma exposição no <strong>modo automático</strong> para diferentes espessuras de simulador de PMMA (20, 30, 40, 45, 50, 60 e 70 mm).</li>
+            <li>Registar os parâmetros técnicos selecionados pelo mamógrafo (tensão em kV, corrente-tempo em mAs, e combinação de ânodo/filtro).</li>
+            <li>Medir e registar o valor do <strong>Kerma no ar incidente</strong> para cada espessura (corrigido pelo fator de calibração \(N_k\) e pelas condições ambientais de temperatura e pressão, se aplicável).</li>
+            <li>Anotar o valor da Camada Semirredutora (CSR/HVL) associada à técnica utilizada.</li>
         </ol>
     </div>
 
-    <div class="card-teste" style="border-left-color: #F29509;">
-        <h2>3. Critérios de Tolerância (IN 92 - Anexo II)</h2>
-        <p>Os valores de Dose Glandular Média (DGM) apresentados no laudo devem respeitar os seguintes limites para cada espessura de PMMA:</p>
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo (Fatores de Dance)</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">A dose não pode ser medida diretamente no tecido vivo. Por isso, a DGM é calculada convertendo o Kerma no ar medido através da equação clássica proposta por Dance et al. (1990, 2000):</p>
+        
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$DGM = K \cdot g \cdot c \cdot s$$
+            </div>
+            <div class="formula-legenda">
+                <strong>Onde:</strong><br>
+                • <strong>K:</strong> Kerma no ar incidente (mGy) medido na superfície do simulador.<br>
+                • <strong>g:</strong> Fator de conversão do kerma no ar em dose glandular (para uma mama padrão com 50% de tecido glandular). Depende do kV e da CSR.<br>
+                • <strong>c:</strong> Fator de correção para diferentes glandularidades da mama (idade e espessura da paciente simulada).<br>
+                • <strong>s:</strong> Fator de correção dependente do espectro de raios X (combinação ânodo/filtro, ex: Mo/Mo, W/Rh).
+            </div>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #d32f2f;">
+        <h2>4. Critérios de Tolerância (IN 92 - Anexo II)</h2>
+        <p>A Dose Glandular Média calculada no laudo do físico deve respeitar rigorosamente os limites máximos estabelecidos pela legislação brasileira. Valores acima destes limites implicam restrição e suspensão do equipamento.</p>
         
         <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
-                        <th>Espessura de PMMA</th>
-                        <th>Mama Equivalente</th>
-                        <th>Nível de Referência</th>
-                        <th>Tolerância Máxima</th>
+                        <th>Espessura de PMMA (cm)</th>
+                        <th>Equivalência em Mama (Aprox.)</th>
+                        <th>Limite Máximo Permitido (IN 92)</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>20 mm</td>
-                        <td>2,1 cm</td>
-                        <td>0,6 mGy</td>
-                        <td><span class="tolerancia">&lt; 1,0 mGy</span></td>
+                        <td>2 cm (20 mm)</td>
+                        <td>21 mm</td>
+                        <td><span class="aceitavel">&le; 1,0 mGy</span></td>
                     </tr>
                     <tr>
-                        <td>30 mm</td>
-                        <td>3,2 cm</td>
-                        <td>1,0 mGy</td>
-                        <td><span class="tolerancia">&lt; 1,5 mGy</span></td>
+                        <td>3 cm (30 mm)</td>
+                        <td>32 mm</td>
+                        <td><span class="aceitavel">&le; 1,5 mGy</span></td>
                     </tr>
                     <tr>
-                        <td>40 mm</td>
-                        <td>4,5 cm</td>
-                        <td>1,6 mGy</td>
-                        <td><span class="tolerancia">&lt; 2,0 mGy</span></td>
-                    </tr>
-                    <tr>
+                        <td>4 cm (40 mm)</td>
                         <td>45 mm</td>
-                        <td>5,3 cm</td>
-                        <td>2,0 mGy</td>
-                        <td><span class="tolerancia">&lt; 2,5 mGy</span></td>
+                        <td><span class="aceitavel">&le; 2,0 mGy</span></td>
                     </tr>
                     <tr>
-                        <td>50 mm</td>
-                        <td>6,0 cm</td>
-                        <td>2,4 mGy</td>
-                        <td><span class="tolerancia">&lt; 3,0 mGy</span></td>
+                        <td>4,5 cm (45 mm)</td>
+                        <td>53 mm</td>
+                        <td><span class="aceitavel">&le; 2,0 mGy</span></td>
                     </tr>
                     <tr>
+                        <td>5 cm (50 mm)</td>
                         <td>60 mm</td>
-                        <td>7,5 cm</td>
-                        <td>3,6 mGy</td>
-                        <td><span class="tolerancia">&lt; 4,5 mGy</span></td>
+                        <td><span class="aceitavel">&le; 2,5 mGy</span></td>
+                    </tr>
+                    <tr>
+                        <td>6 cm (60 mm)</td>
+                        <td>75 mm</td>
+                        <td><span class="aceitavel">&le; 3,0 mGy</span></td>
+                    </tr>
+                    <tr>
+                        <td>7 cm (70 mm)</td>
+                        <td>90 mm</td>
+                        <td><span class="aceitavel">&le; 4,5 mGy</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota: O fiscal deve verificar a coluna "Dose Glandular Média" no laudo da clínica e comparar com a coluna "Tolerância Máxima" acima.</p>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: O fiscal deve verificar se a tabela do laudo inclui a dose para o simulador de 4,5 cm (referência clássica de mama padrão) e se todos os valores estão abaixo ou iguais aos do Anexo II. Valores excedentes indicam falha na filtração ou no Controle Automático de Exposição (CAE).</p>
     </div>
 </div>
 
 <footer class="footer-oficial">
     <div class="footer-container">
         <div class="footer-info">
-            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
-            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
-            Fone: <strong>51 3288-4000</strong>
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
         </div>
         <div class="footer-logo">
-            <img src="logo-rs.png" alt="Governo RS">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
         </div>
     </div>
 </footer>
