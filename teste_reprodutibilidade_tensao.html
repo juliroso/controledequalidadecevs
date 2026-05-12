@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Reprodutibilidade da Tensão do Tubo - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
+
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: REPRODUTIBILIDADE DA TENSÃO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Análise de Constância e Coeficiente de Variação</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Avaliar a constância da tensão aplicada em exposições sucessivas utilizando os mesmos parâmetros técnicos, garantindo a estabilidade do gerador de alta tensão.</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos no gerador.</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia de Aquisição</h2>
+        <ol class="passo-a-passo">
+            <li>Posicionar o multimedidor centrado no feixe sobre o suporte da mama.</li>
+            <li>Selecionar uma tensão de referência (habitualmente 28 kVp) e um valor de mAs fixo em modo manual.</li>
+            <li>Realizar <strong>5 exposições consecutivas</strong> sem alterar qualquer parâmetro técnico ou geometria.</li>
+            <li>Registar individualmente os valores de tensão (\(V_i\)) indicados pelo instrumento de medição.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo</h2>
+        <p style="font-size: 14px; color: #444;">Para validar a reprodutibilidade, é necessário calcular o Coeficiente de Variação (\(CV\)) das leituras obtidas:</p>
+        
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ s = \sqrt{\frac{\sum_{i=1}^{n} (V_i - \bar{V})^2}{n-1}} $$
+                <br>
+                $$ CV = \frac{s}{\bar{V}} $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>\(V_i\):</strong> Tensão medida no disparo \(i\).<br>
+                • <strong>\(\bar{V}\):</strong> Valor médio das 5 exposições realizadas.<br>
+                • <strong>\(s\):</strong> Desvio padrão amostral das leituras.<br>
+                • <strong>\(CV\):</strong> Coeficiente de Variação.
+            </div>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>4. Critérios de Tolerância (IN 92/2021)</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Reprodutibilidade da Tensão</strong></td>
+                        <td><span class="aceitavel">CV &le; 0,05</span></td>
+                        <td><span class="restricao">CV &gt; 0,10</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota Técnica (Protocolo Espanhol): Para mamografia, recomenda-se um rigor superior, com <strong>CV &le; 0,02</strong>, nível que deve ser atingido por equipamentos modernos de alta frequência.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
