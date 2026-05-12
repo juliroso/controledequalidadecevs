@@ -26,7 +26,7 @@
         .passo-a-passo li { margin-bottom: 10px; }
         .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
 
-        /* Formatação da Caixa de Fórmula */
+        /* Formatação da Caixa de Cálculo */
         .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
         .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
         .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
@@ -40,6 +40,7 @@
         /* Cores de Tolerância */
         .aceitavel { color: #2e7d32; font-weight: bold; } 
         .restricao { color: #d32f2f; font-weight: bold; } 
+        .destaque { background-color: #FAAF3F; padding: 2px 6px; border-radius: 4px; font-weight: bold; color: black; font-size: 12px;}
 
         /* Rodapé Oficial */
         .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
@@ -53,7 +54,7 @@
 
 <header>
     <h1>TESTE: COMPENSAÇÃO DO CAE</h1>
-    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Desempenho por Espessura - IN 92/2021</p>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Controle Automático de Exposição (Convencional e Digital)</p>
 </header>
 
 <div class="container">
@@ -61,58 +62,71 @@
 
     <div class="card-teste">
         <h2>1. Dados do Teste</h2>
-        <p><strong>Objetivo:</strong> Avaliar a capacidade do Controle Automático de Exposição (CAE) em manter a constância da imagem (nível de exposição no detetor) ao variar a espessura do objeto simulado.</p>
+        <p><strong>Objetivo:</strong> Avaliar a capacidade do Controle Automático de Exposição (CAE) em compensar variações na espessura da mama, mantendo a Densidade Óptica (em sistemas convencionais) ou a Relação Contraste Ruído (em sistemas digitais) em níveis ótimos e constantes.</p>
         <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
-        <p><strong>Materiais:</strong> Simuladores de PMMA (20, 30, 40, 50 e 60 mm) e dosímetro calibrado.</p>
     </div>
 
     <div class="card-teste">
-        <h2>2. Metodologia de Aquisição</h2>
+        <h2>2. Metodologia: Mamografia Convencional (Filme/Ecrã)</h2>
         <ol class="passo-a-passo">
-            <li>Posicionar o simulador de PMMA sobre o suporte de imagem (bucky), começando pela espessura de 20 mm.</li>
-            <li>Colocar o detetor de radiação do multimedidor sobre o suporte, garantindo que o sensor do CAE esteja coberto pelo simulador.</li>
-            <li>Selecionar o modo de exposição <strong>totalmente automático</strong> (Auto-kV e Auto-mAs).</li>
-            <li>Realizar uma exposição para cada espessura de PMMA estabelecida (20 a 60 mm).</li>
-            <li>Registar para cada disparo: a tensão (kV), a carga (mAs) e o Kerma no ar medido.</li>
+            <li>Selecionar a posição <strong>'0' ou 'normal'</strong> no seletor de controle de densidade (grau de enegrecimento) no painel de comando.</li>
+            <li>Posicionar o cassete carregado no bucky e adicionar marcadores plumbíferos para facilitar a identificação do filme.</li>
+            <li>Posicionar a placa de PMMA com espessura de <strong>45 mm</strong> alinhada com a margem da parede torácica do suporte da mama e centralizada lateralmente.</li>
+            <li>Colocar o <strong>espaçador de poliestireno em forma de U no topo</strong>, atingindo uma espessura total de 53 mm simulada. <em>Nota: O sensor do CAE tem que estar completamente coberto e posicionado no mesmo local a cada teste.</em></li>
+            <li>Realizar uma exposição única utilizando o CAE.</li>
+            <li>No filme processado, medir a Densidade Óptica (DO) no ponto posicionado entre <strong>40 mm e 60 mm da parede torácica</strong>, centrado lateralmente.</li>
+            <li>Determinar o valor de <strong>mAs</strong> fornecido pelo equipamento para atingir a DO de interesse ($DO_{target}$, que deve estar entre 1,40 e 1,90 dependendo do filme). Este mAs será a <strong>linha de base</strong>.</li>
+            <li>Repetir todo o procedimento (exposição e medição) alterando as espessuras do PMMA para <strong>20 mm</strong> e <strong>70 mm</strong>.</li>
         </ol>
     </div>
 
     <div class="card-teste">
-        <h2>3. Metodologia de Cálculo</h2>
-        <p style="font-size: 14px; color: #444;">A compensação é verificada através do desvio percentual das leituras de Kerma no ar (ou sinal do detetor) em relação ao valor médio obtido para todas as espessuras:</p>
+        <h2>3. Cálculos e Tolerâncias (Convencional)</h2>
+        <p style="font-size: 14px; color: #444;">A avaliação foca em duas vertentes: a manutenção da Densidade Óptica pretendida e a variação da carga técnica (mAs) em relação à espessura de referência.</p>
         
         <div class="caixa-calculo">
             <div class="formula-math">
-                $$ \text{Desvio} (\%) = \frac{K_i - \bar{K}}{\bar{K}} \times 100 $$
+                $$ \Delta DO = DO_{medida} - DO_{target} $$
             </div>
             <div class="formula-legenda">
-                • <strong>\(K_i\):</strong> Kerma no ar medido para a espessura \(i\).<br>
-                • <strong>\(\bar{K}\):</strong> Média aritmética dos valores de Kerma de todas as espessuras testadas.
+                • <strong>DO<sub>medida</sub>:</strong> Densidade óptica lida no filme (para cada espessura).<br>
+                • <strong>DO<sub>target</sub>:</strong> Densidade óptica de referência ideal para o filme (entre 1,40 e 1,90).
             </div>
         </div>
-    </div>
 
-    <div class="card-teste" style="border-left-color: #F29509;">
-        <h2>4. Critérios de Tolerância (IN 92/2021)</h2>
         <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
                         <th>Parâmetro Avaliado</th>
-                        <th>Nível de Tolerância (Aprovado)</th>
-                        <th>Nível de Restrição (Reprovado)</th>
+                        <th>Critério de Aceitação</th>
+                        <th>Nível de Restrição</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Compensação do CAE</strong></td>
-                        <td><span class="aceitavel">Variação < 15% do valor médio</span></td>
-                        <td><span class="restricao">Variação > 30% do valor médio</span></td>
+                        <td><strong>Densidade Óptica (DO)</strong></td>
+                        <td><span class="aceitavel">Diferença pequena entre a DO medida e a DO target</span></td>
+                        <td><span class="restricao">DO fora da faixa diagnóstica (1,40 a 1,90)</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Variação de mAs (Compensação)</strong></td>
+                        <td><span class="aceitavel">Variar dentro de ± 10% do valor da linha de base</span></td>
+                        <td><span class="restricao">Variação &gt; ± 10% da linha de base</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota Técnica: Este teste garante que o sistema digital recebe uma exposição constante, evitando imagens com ruído excessivo em mamas densas ou doses desnecessárias em mamas finas.</p>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #00004B;">
+        <h2>4. Metodologia: Mamografia Digital (CR / DR)</h2>
+        <p style="font-size: 15px; color: #333; line-height: 1.6;">
+            Para os modernos sistemas de mamografia digital <span class="destaque">CR e DR</span>, a lógica da densidade óptica não se aplica, visto que a imagem pode ser manipulada no monitor (janelamento). 
+        </p>
+        <p style="font-size: 15px; color: #333; line-height: 1.6; margin-top: 10px;">
+            Portanto, conforme os protocolos atuais de controlo de qualidade, a compensação do CAE nestes equipamentos dá-se exclusivamente através da manutenção da estabilidade da <strong>Relação Contraste Ruído (CNR)</strong>. O CAE deve ser capaz de ajustar os níveis de radiação (aumentando a dose para mamas espessas de 70 mm e diminuindo para mamas finas de 20 mm) de forma a que o sinal (pixel value) e a taxa de ruído da imagem permaneçam constantes na imagem digital final.
+        </p>
     </div>
 </div>
 
