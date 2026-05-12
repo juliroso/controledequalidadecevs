@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste: Tensão do Tubo - CEVS</title>
+    <title>Teste: Exatidão da Tensão do Tubo - CEVS</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
         header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
@@ -18,10 +21,17 @@
         .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
         .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
         
-        /* Lista de Metodologia */
+        /* Listas */
         .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
         .passo-a-passo li { margin-bottom: 10px; }
         .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Formatação da Caixa de Fórmula */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; overflow-x: auto;}
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
 
         /* Tabela de Resultados/Tolerância */
         .table-wrapper { overflow-x: auto; margin-top: 15px; }
@@ -45,8 +55,8 @@
 <body>
 
 <header>
-    <h1>TESTE: TENSÃO DO TUBO</h1>
-    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Exatidão e Reprodutibilidade (IN 92/2021)</p>
+    <h1>TESTE: EXATIDÃO DA TENSÃO DO TUBO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia de Aquisição e IN 92/2021</p>
 </header>
 
 <div class="container">
@@ -54,26 +64,40 @@
 
     <div class="card-teste">
         <h2>1. Dados do Teste</h2>
-        <p><strong>Objetivo:</strong> Avaliar a exatidão e a reprodutibilidade da tensão de pico do tubo do mamógrafo.</p>
-        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
-        <p><strong>Equipamento Utilizado:</strong> Analisador/multimedidor calibrado.</p>
+        <p><strong>Objetivo:</strong> Avaliar a concordância entre a tensão de pico (kVp) selecionada no painel de comando e a tensão efetivamente aplicada pelo tubo de raios X durante a exposição.</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos no gerador/tubo.</p>
+        <p><strong>Equipamento Utilizado:</strong> Analisador/multimedidor calibrado não invasivo.</p>
     </div>
 
     <div class="card-teste">
-        <h2>2. Metodologia (Passo a Passo)</h2>
+        <h2>2. Metodologia de Aquisição</h2>
         <ol class="passo-a-passo">
-            <li>Posicionar o instrumento de medição sobre o suporte de mama.</li>
-            <li>Selecionar o modo manual de operação do mamógrafo.</li>
-            <li>Definir valores de tensão (kVp) utilizados clinicamente na rotina.</li>
-            <li>Realizar as exposições sucessivas.</li>
-            <li>Registrar os valores lidos pelo multimedidor.</li>
-            <li>Calcular o valor final de tensão aplicando o fator de calibração (Nk) do certificado do equipamento de medição.</li>
+            <li>Posicionar o detetor do instrumento de medição sobre o suporte da mama, centrado no feixe de radiação.</li>
+            <li>Selecionar o modo manual de operação no pupitre de comando do mamógrafo.</li>
+            <li>Definir os valores de tensão (kVp) habitualmente utilizados na rotina clínica do serviço (ex: 26, 28 e 30 kVp).</li>
+            <li>Realizar a exposição para o valor de tensão selecionado.</li>
+            <li>Registar o valor de tensão lido pelo multimedidor (após aplicar os devidos fatores de calibração do aparelho, se necessário).</li>
         </ol>
     </div>
 
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo Estatístico</h2>
+        <p style="font-size: 14px; color: #444;">A exatidão é avaliada através do desvio percentual ($E$) entre o valor medido e o valor nominal selecionado no painel:</p>
+        
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ E (\%) = \frac{V_{med} - V_{nom}}{V_{nom}} \times 100 $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>\(V_{med}\):</strong> Tensão medida no disparo pelo equipamento calibrado.<br>
+                • <strong>\(V_{nom}\):</strong> Tensão nominal (selecionada no painel de comando).
+            </div>
+        </div>
+    </div>
+
     <div class="card-teste" style="border-left-color: #F29509;">
-        <h2>3. Critérios de Aceitabilidade e Restrição</h2>
-        <p>Os valores apresentados no laudo de física médica devem respeitar os limites da IN 92/2021:</p>
+        <h2>4. Critérios de Tolerância e Restrição</h2>
+        <p>O fiscal deve confrontar os cálculos do laudo de física médica com os seguintes limites legais (IN 92/2021) e recomendações internacionais:</p>
         
         <div class="table-wrapper">
             <table>
@@ -90,27 +114,21 @@
                         <td><span class="aceitavel">&lt; 5% do valor nominal</span></td>
                         <td><span class="restricao">&gt; 10% do valor nominal</span></td>
                     </tr>
-                    <tr>
-                        <td><strong>Reprodutibilidade</strong></td>
-                        <td><span class="aceitavel">Coeficiente de Variação (CV) ≤ 0,05</span></td>
-                        <td><span class="restricao">Coeficiente de Variação (CV) &gt; 0,1</span></td>
-                    </tr>
                 </tbody>
             </table>
         </div>
-        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: O fiscal deve conferir se o laudo apresenta as leituras para diferentes faixas de kVp utilizadas na clínica (ex: 26, 28 e 30 kVp) e se os cálculos de variação estão dentro dos limites.</p>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota Técnica: Embora a legislação brasileira permita um desvio de até 5%, o Protocolo Espanhol (SEFM) é mais estrito para equipamentos modernos, recomendando que o desvio da exatidão seja <strong>&le; &plusmn; 1 kV</strong> para tensões &le; 30 kV.</p>
     </div>
 </div>
 
 <footer class="footer-oficial">
     <div class="footer-container">
         <div class="footer-info">
-            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
-            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
-            Fone: <strong>51 3288-4000</strong>
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
         </div>
         <div class="footer-logo">
-            <img src="logo-rs.png" alt="Governo RS">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
         </div>
     </div>
 </footer>
