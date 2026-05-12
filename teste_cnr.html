@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,6 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Script do MathJax para renderizar fórmulas em estilo LaTeX -->
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
     <style>
@@ -31,7 +30,7 @@
 
         /* Formatação da Caixa de Fórmula */
         .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
-        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 110%; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
         .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
 
         /* Tabela de Resultados/Tolerância */
@@ -40,15 +39,12 @@
         th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
         th { background-color: #f9f9f9; color: #333; font-weight: bold; }
         
-        /* Cores de Tolerância */
         .aceitavel { color: #2e7d32; font-weight: bold; } 
         .restricao { color: #d32f2f; font-weight: bold; } 
 
-        /* Rodapé Oficial */
         .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
         .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
-        .mapa-link { color: white !important; font-weight: bold; text-decoration: underline; background: none !important; padding: 0; }
 
         @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
     </style>
@@ -56,112 +52,97 @@
 <body>
 
 <header>
-    <h1>TESTE: RAZÃO CONTRASTE RUÍDO (CNR)</h1>
-    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia Digital e Anexo III da IN 92/2021</p>
+    <h1>TESTE: RAZÃO CONTRASTE RUÍDO (CNR / RCR)</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Protocolo Espanhol (SEFM) e IN 92/2021</p>
 </header>
 
 <div class="container">
     <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
 
-    <!-- Informações Básicas -->
     <div class="card-teste">
-        <h2>1. Dados do Teste</h2>
-        <p><strong>Objetivo:</strong> Avaliar se a quantidade de ruído e o contraste da imagem digital estão adequados, garantindo a distinção correta entre diferentes tecidos na mama.</p>
-        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
-        <p><strong>Equipamento Utilizado:</strong> Placas de PMMA (simulador) e um objeto de contraste (placa de alumínio de 0,2 mm).</p>
+        <h2>1. Objetivo e Materiais</h2>
+        <p>Avaliar a capacidade do sistema em distinguir estruturas de baixo contraste em relação ao ruído de fundo. Este parâmetro é um dos indicadores mais sensíveis da performance do detetor digital.</p>
+        <ul class="lista-interna">
+            <li><strong>Materiais:</strong> Placas de PMMA (20 a 70 mm) e objeto de contraste (Alumínio).</li>
+            <li><strong>Referência Técnica:</strong> Protocolo Espanhol (SEFM-SEPR-SERAM) e IN 92/2021.</li>
+        </ul>
     </div>
 
-    <!-- Metodologia de Aquisição -->
     <div class="card-teste">
-        <h2>2. Metodologia de Aquisição (Passo a Passo)</h2>
-        <ol class="passo-a-passo">
-            <li>Posicionar o simulador de PMMA com espessura de 20 mm sobre o suporte da mama (bucky).</li>
-            <li>Adicionar sobre o simulador de PMMA a placa de 0,2 mm de espessura de alumínio a 4 cm da borda da parede torácica.</li>
-            <li>Selecionar o modo automático de exposição.</li>
-            <li>Realizar uma exposição e registrar os parâmetros técnicos.</li>
-            <li>Repetir o procedimento adicionando mais placas para variar a espessura total do simulador de PMMA (30, 40, 45, 50, 60 e 70 mm).</li>
-        </ol>
-    </div>
-
-    <!-- Metodologia de Cálculo -->
-    <div class="card-teste">
-        <h2>3. Metodologia de Cálculo (RCR Relativa)</h2>
-        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">Após a aquisição, as imagens brutas (RAW) são analisadas no software. O cálculo da RCR Relativa utiliza o protocolo de comparação com uma imagem de referência:</p>
+        <h2>2. Metodologia de Aquisição</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">Os PMMAs devem ser dispostos de modo a somar as espessuras estabelecidas na tabela normativa. O passo a passo para a aquisição segue o rigor do protocolo:</p>
         
         <ol class="passo-a-passo">
-            <li>Demarcam-se duas <strong>Regiões de Interesse (ROIs)</strong> na imagem central:
+            <li>Posicionar as placas sobre o <em>bucky</em> do equipamento e centralizá-las, de modo a que uma das suas faces laterais coincida com a região da parede torácica.</li>
+            <li>Posicionar o objeto de contraste (alumínio) colado em cima de uma placa de PMMA, a exatos <strong>6 cm de distância da parede torácica</strong>.</li>
+            <li>Configurar o modo de aquisição no equipamento:
                 <ul class="lista-interna">
-                    <li><strong>ROI do Fundo:</strong> Para extrair o Valor Médio do Pixel do fundo e o seu Desvio Padrão.</li>
-                    <li><strong>ROI do Contraste:</strong> Sobre o objeto de contraste para extrair o seu respectivo Valor Médio do Pixel.</li>
+                    <li>Nas espessuras de <strong>2 a 5 cm</strong>, utilizar o modo de aquisição <strong>STD</strong>.</li>
+                    <li>Nas espessuras de <strong>6 e 7 cm</strong>, utilizar o modo de aquisição <strong>STD+</strong> (conforme a recomendação da fabricante).</li>
                 </ul>
             </li>
-            <li>Aplica-se a fórmula da estimativa da relação contraste-ruído (RCR<sub>i</sub>), que compara os valores da imagem de referência (índice 0) com as imagens subsequentes (índice i):</li>
+            <li>Realizar as exposições e registar os parâmetros técnicos.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo (ROIs e Fórmulas)</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">A avaliação é feita utilizando as <strong>imagens brutas</strong> geradas pelo equipamento para garantir a fiabilidade dos dados:</p>
+        
+        <ol class="passo-a-passo">
+            <li>Demarcar duas Regiões de Interesse (ROIs) em duas regiões distintas:
+                <ul class="lista-interna">
+                    <li><strong>ROI-A:</strong> Demarcada dentro do objeto de contraste (alumínio) para registar o valor do pixel A (PVI-A ou VMP<sub>A</sub>).</li>
+                    <li><strong>ROI-B:</strong> Demarcada a <strong>0,5 cm abaixo do objeto de contraste</strong>. Com esta ROI, são registados os PVI-B (valores de píxeis do fundo) e os seus respetivos desvios-padrão (&sigma;<sub>B</sub>).</li>
+                </ul>
+            </li>
+            <li>Calcular a <strong>RCR Base</strong> através da diferença entre o sinal do fundo e do objeto:</li>
         </ol>
 
-        <!-- Caixa de Cálculo Formatada com LaTeX (MathJax) -->
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ RCR = \frac{PVI_B - PVI_A}{\sigma_B} $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>PVI<sub>B</sub>:</strong> Valor do pixel no fundo (PMMA).<br>
+                • <strong>PVI<sub>A</sub>:</strong> Valor do pixel no objeto de contraste (Alumínio).<br>
+                • <strong>&sigma;<sub>B</sub>:</strong> Desvio padrão do ruído no fundo.
+            </div>
+        </div>
+
+        <p style="margin-top: 20px;"><strong>Teste de Constância (RCR Relativa):</strong> Para verificar a estabilidade do detetor face à linha de base (aceitação), calcula-se a RCR Relativa (RCR<sub>i</sub>):</p>
+        
         <div class="caixa-calculo">
             <div class="formula-math">
                 $$ RCR_i = \frac{VMP_0 - VMP_i}{\sqrt{\frac{DTP_0^2 + DTP_i^2}{2}}} $$
             </div>
             <div class="formula-legenda">
-                <strong>Onde:</strong><br>
-                • <strong>VMP<sub>0</sub></strong> e <strong>DTP<sub>0</sub></strong> = Valor Médio do Pixel e Desvio Padrão extraídos da imagem de <strong>referência</strong>.<br>
-                • <strong>VMP<sub>i</sub></strong> e <strong>DTP<sub>i</sub></strong> = Valor Médio do Pixel e Desvio Padrão extraídos da ROI nas imagens <strong>subsequentes</strong> avaliadas.
+                • <strong>VMP<sub>0</sub> e DTP<sub>0</sub>:</strong> Valor médio do pixel e desvio padrão da imagem de <em>referência</em> (aceitação).<br>
+                • <strong>VMP<sub>i</sub> e DTP<sub>i</sub>:</strong> Valor médio do pixel e desvio padrão da imagem <em>atual</em> (constância).
             </div>
         </div>
-        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Desta forma, a Razão Contraste Ruído medida para cada espessura de PMMA é avaliada em termos percentuais (relativos) frente à qualidade base do equipamento.</p>
     </div>
 
-    <!-- Tolerância e Resultados (Anexo III da IN 92) -->
-    <div class="card-teste" style="border-left-color: #F29509;">
+    <div class="card-teste" style="border-left-color: #d32f2f;">
         <h2>4. Critérios de Tolerância (IN 92 - Anexo III)</h2>
-        <p>A Razão Contraste Ruído Relativa (CNR Relativa) apresentada no laudo do físico deve respeitar os seguintes limites percentuais:</p>
-        
+        <p>A Razão Contraste Ruído Relativa apresentada deve respeitar os seguintes limites normativos para não configurar infração:</p>
         <div class="table-wrapper">
             <table>
                 <thead>
                     <tr>
-                        <th>Espessura de PMMA (cm)</th>
-                        <th>Nível de Tolerância (Aprovado)</th>
-                        <th>Nível de Restrição (Reprovado)</th>
+                        <th>Espessura de PMMA</th>
+                        <th>Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>2 cm (20 mm)</td>
-                        <td><span class="aceitavel">≥ 115%</span></td>
-                        <td><span class="restricao">&lt; 105%</span></td>
-                    </tr>
-                    <tr>
-                        <td>3 cm (30 mm)</td>
-                        <td><span class="aceitavel">≥ 110%</span></td>
-                        <td><span class="restricao">&lt; 100%</span></td>
-                    </tr>
-                    <tr>
-                        <td>4 cm (40 mm)</td>
-                        <td><span class="aceitavel">≥ 105%</span></td>
-                        <td><span class="restricao">&lt; 95%</span></td>
-                    </tr>
-                    <tr>
-                        <td>4,5 cm (45 mm)</td>
-                        <td><span class="aceitavel">≥ 103%</span></td>
-                        <td><span class="restricao">&lt; 93%</span></td>
-                    </tr>
-                    <tr>
-                        <td>5 cm (50 mm)</td>
-                        <td><span class="aceitavel">≥ 100%</span></td>
-                        <td><span class="restricao">&lt; 90%</span></td>
-                    </tr>
-                    <tr>
-                        <td>6 cm (60 mm)</td>
-                        <td><span class="aceitavel">≥ 95%</span></td>
-                        <td><span class="restricao">&lt; 85%</span></td>
-                    </tr>
-                    <tr>
-                        <td>7 cm (70 mm)</td>
-                        <td><span class="aceitavel">≥ 90%</span></td>
-                        <td><span class="restricao">&lt; 80%</span></td>
-                    </tr>
+                    <tr><td>2 cm (20 mm)</td><td class="aceitavel">≥ 115%</td><td class="restricao">&lt; 105%</td></tr>
+                    <tr><td>3 cm (30 mm)</td><td class="aceitavel">≥ 110%</td><td class="restricao">&lt; 100%</td></tr>
+                    <tr><td>4 cm (40 mm)</td><td class="aceitavel">≥ 105%</td><td class="restricao">&lt; 95%</td></tr>
+                    <tr><td>4,5 cm (45 mm)</td><td class="aceitavel">≥ 103%</td><td class="restricao">&lt; 93%</td></tr>
+                    <tr><td>5 cm (50 mm)</td><td class="aceitavel">≥ 100%</td><td class="restricao">&lt; 90%</td></tr>
+                    <tr><td>6 cm (60 mm)</td><td class="aceitavel">≥ 95%</td><td class="restricao">&lt; 85%</td></tr>
+                    <tr><td>7 cm (70 mm)</td><td class="aceitavel">≥ 90%</td><td class="restricao">&lt; 80%</td></tr>
                 </tbody>
             </table>
         </div>
@@ -171,12 +152,11 @@
 <footer class="footer-oficial">
     <div class="footer-container">
         <div class="footer-info">
-            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
-            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
-            Fone: <strong>51 3288-4000</strong>
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
         </div>
         <div class="footer-logo">
-            <img src="logo-rs.png" alt="Governo RS">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
         </div>
     </div>
 </footer>
