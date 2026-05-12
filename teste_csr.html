@@ -6,6 +6,9 @@
     <title>Teste: Camada Semirredutora (CSR) - CEVS</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
         header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
@@ -18,10 +21,17 @@
         .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
         .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
         
-        /* Lista de Metodologia */
+        /* Listas */
         .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
         .passo-a-passo li { margin-bottom: 10px; }
         .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Formatação da Caixa de Fórmula */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
 
         /* Tabela de Resultados/Tolerância */
         .table-wrapper { overflow-x: auto; margin-top: 15px; }
@@ -29,11 +39,9 @@
         th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
         th { background-color: #f9f9f9; color: #333; font-weight: bold; }
         
-        /* Cores de Tolerância */
         .aceitavel { color: #2e7d32; font-weight: bold; } 
         .restricao { color: #d32f2f; font-weight: bold; } 
 
-        /* Rodapé Oficial */
         .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
         .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
@@ -46,39 +54,54 @@
 
 <header>
     <h1>TESTE: CAMADA SEMIRREDUTORA (CSR)</h1>
-    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia e Fórmulas da IN 92/2021</p>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia de Interpolação e IN 92/2021</p>
 </header>
 
 <div class="container">
     <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
 
-    <!-- Informações Básicas -->
     <div class="card-teste">
         <h2>1. Dados do Teste</h2>
-        <p><strong>Objetivo:</strong> Verificar a qualidade do feixe da mamografia (garantir que a radiação de baixa energia seja filtrada para não causar dose excessiva na pele).</p>
+        <p><strong>Objetivo:</strong> Verificar a qualidade (dureza) do feixe de radiação da mamografia. Uma filtração adequada garante que os fotões de baixa energia (que não contribuem para a imagem, mas aumentam a dose na pele) sejam bloqueados.</p>
         <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
-        <p><strong>Equipamento Utilizado:</strong> Analisador/multimedidor calibrado.</p>
+        <p><strong>Materiais:</strong> Dosímetro (câmara de ionização ou estado sólido) e lâminas de alumínio puro (99,9%).</p>
     </div>
 
-    <!-- Metodologia -->
     <div class="card-teste">
-        <h2>2. Metodologia (Passo a Passo)</h2>
+        <h2>2. Metodologia de Aquisição (Protocolo Internacional)</h2>
         <ol class="passo-a-passo">
-            <li>Selecionar o valor de tensão (geralmente 28 kVp).</li>
-            <li>Selecionar um valor de mAs fixo para a rotina.</li>
-            <li>Registrar a combinação ânodo/filtro do mamógrafo (ex: Mo/Mo, W/Rh).</li>
-            <li>Realizar uma exposição com os parâmetros técnicos definidos.</li>
-            <li>O valor da CSR é calculado pelo instrumento e corrigido conforme o fator Nk do certificado de calibração.</li>
+            <li>Remover a bandeja de compressão do mamógrafo.</li>
+            <li>Posicionar o detetor de radiação centrado a <strong>4,5 cm da borda da parede torácica</strong> e a uma altura de <strong>4,5 cm acima do suporte da mama</strong> (bucky).</li>
+            <li>Selecionar os parâmetros clínicos (ex: 28 kV, 40 mAs e combinação ânodo/filtro como W/Rh ou Mo/Mo).</li>
+            <li>Realizar a primeira exposição <strong>sem nenhuma lâmina de alumínio (sem atenuação adicional)</strong> e registar a taxa de Kerma no ar inicial (\(K_0\)).</li>
+            <li>Colocar lâminas de alumínio (em incrementos de 0,1 mm) no trajeto do feixe (próximo à saída do tubo).</li>
+            <li>Realizar exposições sucessivas até obter uma leitura de Kerma no ar que seja <strong>inferior à metade da leitura inicial</strong> (\(K_0 / 2\)).</li>
         </ol>
     </div>
 
-    <!-- Tolerância e Resultados (IN 92) -->
-    <div class="card-teste" style="border-left-color: #F29509;">
-        <h2>3. Critérios de Aceitabilidade e Restrição</h2>
-        <p>A IN 92/2021 define que a CSR (em mm de Alumínio) deve seguir uma equação baseada na tensão (kVp) e num fator "c" que depende do ânodo/filtro.</p>
+    <div class="card-teste">
+        <h2>3. Cálculo da CSR (Interpolação Logarítmica)</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">Para determinar a espessura exata de alumínio que reduz a intensidade do feixe a metade, utiliza-se a seguinte equação matemática de interpolação:</p>
         
-        <p style="text-align: center; font-weight: bold; font-size: 16px; margin: 20px 0;">
-            Fórmula: (kVp / 100) + 0,03 &le; CSR &le; (kVp / 100) + c
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ CSR = \frac{x_1 \cdot \ln(2 \cdot K_2 / K_0) - x_2 \cdot \ln(2 \cdot K_1 / K_0)}{\ln(K_2 / K_1)} $$
+            </div>
+            <div class="formula-legenda">
+                <strong>Onde:</strong><br>
+                • \(K_0\): Kerma no ar medido sem atenuação (sem alumínio).<br>
+                • \(K_1\) e \(K_2\): Leituras de Kerma no ar imediatamente <strong>acima</strong> e imediatamente <strong>abaixo</strong> da metade do valor inicial (\(K_0 / 2\)).<br>
+                • \(x_1\) e \(x_2\): Espessuras das lâminas de alumínio correspondentes às medições \(K_1\) e \(K_2\).
+            </div>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #d32f2f;">
+        <h2>4. Critérios de Tolerância (IN 92/2021)</h2>
+        <p>A IN 92/2021 estipula que o valor da CSR (em mmAl) deve estar contido num intervalo matemático baseado no kVp selecionado e na combinação alvo/filtro (fator "c"):</p>
+        
+        <p style="text-align: center; font-weight: bold; font-size: 16px; margin: 20px 0; color: #00004B;">
+            (kVp / 100) + 0,03 &le; CSR &le; (kVp / 100) + c
         </p>
 
         <div class="table-wrapper">
@@ -124,19 +147,18 @@
                 </tbody>
             </table>
         </div>
-        <p style="font-size: 13px; color: #d32f2f; margin-top: 15px; font-weight: bold;">* Nível de Restrição: Equipamentos que apresentem CSR(mmAl) &le; (kVp/100) estão reprovados por filtração insuficiente (para 28 kVp, restrição se CSR for &le; 0,28 mmAl).</p>
+        <p style="font-size: 13px; color: #d32f2f; margin-top: 15px; font-weight: bold;">* Nível de Restrição: O equipamento será reprovado (suspenso de uso clínico) se apresentar uma CSR &le; (kVp/100). Exemplo: Para 28 kVp, a restrição ocorre se a CSR for &le; 0,28 mmAl.</p>
     </div>
 </div>
 
 <footer class="footer-oficial">
     <div class="footer-container">
         <div class="footer-info">
-            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
-            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
-            Fone: <strong>51 3288-4000</strong>
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
         </div>
         <div class="footer-logo">
-            <img src="logo-rs.png" alt="Governo RS">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
         </div>
     </div>
 </footer>
