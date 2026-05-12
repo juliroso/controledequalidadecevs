@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Temperatura da Processadora - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: TEMPERATURA DO SISTEMA DE PROCESSAMENTO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Mamografia Convencional (Filme/Ecrã)</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Objetivo e Materiais</h2>
+        <p>Avaliar a temperatura do químico revelador no sistema de processamento. Temperaturas abaixo do recomendado geram filmes sub-revelados (claros e sem contraste), enquanto temperaturas excessivas causam super-revelação (aumento do véu químico e filmes escuros).</p>
+        <ul>
+            <li><strong>Periodicidade:</strong> Anual (por parte da física) e acompanhamento diário clínico.</li>
+            <li><strong>Equipamento Utilizado:</strong> Termômetro digital calibrado (com haste longa).</li>
+        </ul>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li>Ligar a processadora automática e aguardar o tempo necessário para que o sistema de aquecimento estabilize.</li>
+            <li>Levantar a tampa superior da processadora e retirar a tampa do tanque do revelador.</li>
+            <li>Inserir a haste do termômetro digital diretamente no líquido do tanque de revelação, tomando cuidado para não danificar os roletes.</li>
+            <li>Aguardar alguns segundos até que a leitura do termômetro estabilize e registrar o valor medido.</li>
+            <li>Registrar também o valor de temperatura que é indicado no painel digital (ou analógico) da processadora, caso exista.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #d32f2f;">
+        <h2>3. Critérios de Tolerância</h2>
+        <p>As normativas de controlo de qualidade exigem que a temperatura medida corresponda às especificações do fabricante da película e do químico. Além disso, o mostrador do equipamento deve ser preciso.</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Temperatura do Revelador</strong></td>
+                        <td><span class="aceitavel">De acordo com o fabricante (Geralmente entre 32°C e 35°C)</span></td>
+                        <td><span class="restricao">Fora dos limites estipulados</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Exatidão do Indicador (Painel vs Real)</strong></td>
+                        <td><span class="aceitavel">Desvio máximo de ± 1°C</span></td>
+                        <td><span class="restricao">Desvio &gt; ± 1°C</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: O fiscal deve cruzar os resultados deste teste com o laudo de Sensitometria. Se a temperatura oscilar muito, os valores de Índice de Velocidade (IV) e Índice de Contraste (IC) também estarão reprovados.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
