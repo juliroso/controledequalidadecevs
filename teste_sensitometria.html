@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Sensitometria da Processadora - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Formatação da Caixa de Fórmula */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: SENSITOMETRIA DA PROCESSADORA</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Mamografia Convencional (Filme/Ecrã) - IN 92/2021</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Objetivo e Materiais</h2>
+        <p>Avaliar o desempenho e a estabilidade da processadora automática de filmes radiográficos, garantindo que os químicos (revelador e fixador) e a temperatura estão adequados para produzir imagens com contraste e densidade corretos.</p>
+        <ul class="lista-interna">
+            <li><strong>Periodicidade:</strong> <strong>Diária</strong> (antes do início dos exames), após limpeza ou troca de químicos.</li>
+            <li><strong>Materiais:</strong> Sensitômetro (para expor a película em degraus de luz), Densitômetro (para ler a escuridão do filme) e Termômetro digital.</li>
+        </ul>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li>Ligar a processadora automática e aguardar até que a temperatura do revelador estabilize. Medir a temperatura com o termômetro.</li>
+            <li>Na câmara escura, expor uma película virgem (do mesmo lote usado na clínica) utilizando o sensitômetro (exposição de 21 degraus ópticos).</li>
+            <li>Introduzir a película exposta na processadora sempre do mesmo lado e na mesma orientação.</li>
+            <li>Após a revelação, efetuar a leitura das Densidades Ópticas (DO) de cada um dos 21 degraus utilizando o densitômetro calibrado.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste">
+        <h2>3. Cálculos e Definições Sensitométricas</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">A partir da leitura dos 21 degraus, o físico extrai três parâmetros fundamentais:</p>
+        
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ \text{Base} + \text{Véu} \ (B+F) $$
+            </div>
+            <div class="formula-legenda">
+                <strong>Base + Véu (B+F):</strong> É a densidade óptica da área não exposta do filme (ou do degrau 1). Indica o escurecimento inerente do plástico do filme somado ao véu químico (envelhecimento/químicos fortes).
+            </div>
+        </div>
+
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ \text{Índice de Velocidade} \ (IV) $$
+            </div>
+            <div class="formula-legenda">
+                <strong>Índice de Velocidade (IV):</strong> Representa a sensibilidade do sistema. É medido no degrau cuja densidade óptica seja a mais próxima de <strong>1,00 + (B+F)</strong> (geralmente recai no degrau 11).
+            </div>
+        </div>
+
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ \text{Índice de Contraste} \ (IC) = DO_{alta} - DO_{baixa} $$
+            </div>
+            <div class="formula-legenda">
+                <strong>Índice de Contraste (IC):</strong> Avalia a capacidade do filme distinguir tons de cinza. É calculado pela diferença entre a densidade óptica do degrau mais próximo de <strong>2,00 + (B+F)</strong> e o degrau mais próximo de <strong>0,25 + (B+F)</strong> (ex: DO do degrau 13 menos DO do degrau 9).
+            </div>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #d32f2f;">
+        <h2>4. Critérios de Tolerância (IN 92/2021)</h2>
+        <p>A constância da processadora deve ser mantida ao longo dos dias. As variações permitidas em relação à linha de base (valor estabelecido quando os químicos são novos) são:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro</th>
+                        <th>Limite / Variação Máxima Permitida</th>
+                        <th>Nível de Restrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Base + Véu (B+F)</strong></td>
+                        <td><span class="aceitavel">≤ 0,20 DO (Variação de ± 0,03 DO)</span></td>
+                        <td><span class="restricao">&gt; 0,20 DO ou variação &gt; ± 0,03 DO</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Índice de Velocidade (IV)</strong></td>
+                        <td><span class="aceitavel">Variação de ± 0,15 DO</span></td>
+                        <td><span class="restricao">Variação &gt; ± 0,15 DO</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Índice de Contraste (IC)</strong></td>
+                        <td><span class="aceitavel">Variação de ± 0,15 DO</span></td>
+                        <td><span class="restricao">Variação &gt; ± 0,15 DO</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Temperatura do Revelador</strong></td>
+                        <td><span class="aceitavel">Conforme manual do fabricante do filme</span></td>
+                        <td><span class="restricao">Fora dos limites do fabricante</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #d32f2f; margin-top: 15px; font-weight: bold;">* Nota de Fiscalização: Sendo um teste DIÁRIO, a clínica deve possuir um gráfico de controlo (Carta de Controle Sensitométrico) preenchido diariamente pelo técnico/tecnólogo, e não apenas o laudo anual da empresa de física médica.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
