@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teste: Rendimento do Tubo - CEVS</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
         header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
@@ -18,10 +21,15 @@
         .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
         .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
         
-        /* Lista de Metodologia */
+        /* Listas */
         .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
         .passo-a-passo li { margin-bottom: 10px; }
         .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+
+        /* Formatação da Caixa de Cálculo */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
 
         /* Tabela de Resultados/Tolerância */
         .table-wrapper { overflow-x: auto; margin-top: 15px; }
@@ -29,7 +37,6 @@
         th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
         th { background-color: #f9f9f9; color: #333; font-weight: bold; }
         
-        /* Cores de Tolerância */
         .aceitavel { color: #2e7d32; font-weight: bold; } 
         .restricao { color: #d32f2f; font-weight: bold; } 
 
@@ -37,7 +44,6 @@
         .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
         .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
-        .mapa-link { color: white !important; font-weight: bold; text-decoration: underline; background: none !important; padding: 0; }
 
         @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
     </style>
@@ -46,37 +52,52 @@
 
 <header>
     <h1>TESTE: RENDIMENTO DO TUBO</h1>
-    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia e Cálculo da IN 92/2021</p>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia de Normalização e IN 92/2021</p>
 </header>
 
 <div class="container">
     <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
 
-    <!-- Informações Básicas -->
     <div class="card-teste">
         <h2>1. Dados do Teste</h2>
-        <p><strong>Objetivo:</strong> Avaliar o rendimento do tubo de raios X (quantidade de radiação produzida por mAs).</p>
+        <p><strong>Objetivo:</strong> Avaliar o rendimento (ou taxa de Kerma) do tubo de raios X, verificando a quantidade de radiação produzida por unidade de carga (mAs). Uma queda neste valor indica desgaste do ânodo ou falha no gerador de alta tensão.</p>
         <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
-        <p><strong>Equipamento Utilizado:</strong> Analisador/multimedidor calibrado.</p>
+        <p><strong>Equipamento Utilizado:</strong> Dosímetro (câmara de ionização ou estado sólido) calibrado.</p>
     </div>
 
-    <!-- Metodologia -->
     <div class="card-teste">
-        <h2>2. Metodologia (Passo a Passo)</h2>
+        <h2>2. Metodologia de Aquisição</h2>
         <ol class="passo-a-passo">
-            <li>Selecionar a tensão de 28 kVp no painel do mamógrafo.</li>
-            <li>Posicionar o instrumento de medição sobre o suporte da mama (geralmente a 50 cm do ponto focal).</li>
-            <li>Definir diferentes valores de mAs.</li>
-            <li>Realizar as exposições para cada valor de mAs definido.</li>
-            <li>Registrar os valores medidos.</li>
-            <li>O valor de Kerma no ar final é calculado aplicando o fator Nk obtido do certificado de calibração do multimedidor.</li>
+            <li>Posicionar o instrumento de medição centrado no feixe, registando rigorosamente a Distância Foco-Detetor (DFD) em centímetros.</li>
+            <li>Selecionar a tensão de <strong>28 kVp</strong> no painel do mamógrafo no modo manual.</li>
+            <li>Definir um valor clínico de corrente-tempo (mAs).</li>
+            <li>Realizar a exposição e registar o valor da leitura em estado bruto (sem correção).</li>
         </ol>
     </div>
 
-    <!-- Tolerância e Resultados (IN 92) -->
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo (Normalização para 1 Metro)</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">Para que o rendimento ($Y$) seja comparável e padronizado, o valor medido deve ser corrigido pelas condições ambientais, fator de calibração do detetor e, crucialmente, normalizado para uma distância exata de 100 cm (1 metro) através da Lei do Inverso do Quadrado da Distância:</p>
+        
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ Y = \left( \frac{L}{mAs} \right) \cdot \left( \frac{DFD}{100} \right)^2 \cdot C_{T,P} \cdot k_Q $$
+            </div>
+            <div class="formula-legenda">
+                <strong>Onde:</strong><br>
+                • <strong>\(Y\):</strong> Rendimento normalizado a 1 metro (expressado usualmente em \(\mu Gy/mAs\)).<br>
+                • <strong>\(L\):</strong> Leitura bruta do dosímetro.<br>
+                • <strong>\(mAs\):</strong> Carga radiográfica utilizada no disparo.<br>
+                • <strong>\(DFD\):</strong> Distância Foco-Detetor real durante a medição (em cm).<br>
+                • <strong>\(C_{T,P}\):</strong> Fator de correção de temperatura e pressão (se for câmara de ionização não selada).<br>
+                • <strong>\(k_Q\):</strong> Fator de calibração do instrumento para a qualidade do feixe.
+            </div>
+        </div>
+    </div>
+
     <div class="card-teste" style="border-left-color: #F29509;">
-        <h2>3. Critérios de Tolerância (IN 92/2021)</h2>
-        <p>O rendimento medido a <strong>28 kV</strong> deve ser <strong>&ge; 7 &times; f (mGy/s)</strong>, onde o fator <strong>"f"</strong> depende do material do ânodo e do filtro utilizado no mamógrafo:</p>
+        <h2>4. Critérios de Tolerância (IN 92/2021)</h2>
+        <p>A legislação brasileira (IN 92) exige que o rendimento (frequentemente avaliado na forma de taxa em mGy/s) medido a <strong>28 kV</strong> seja superior a um limite que varia com a combinação de alvo/filtro (Fator "$f$"):</p>
         
         <div class="table-wrapper">
             <table>
@@ -116,19 +137,18 @@
                 </tbody>
             </table>
         </div>
-        <p style="font-size: 12px; color: #d32f2f; margin-top: 15px; font-weight: bold;">* Nível de Restrição: Equipamentos que apresentem rendimento inferior ao calculado para a sua respectiva combinação Alvo/Filtro estão reprovados (indicando desgaste acentuado do tubo ou falha no gerador).</p>
+        <p style="font-size: 12px; color: #d32f2f; margin-top: 15px; font-weight: bold;">* Nível de Restrição: Equipamentos que apresentem rendimento inferior ao calculado para a sua respetiva combinação Alvo/Filtro estão reprovados, implicando suspensão do uso clínico até à substituição ou manutenção corretiva do tubo de raios X.</p>
     </div>
 </div>
 
 <footer class="footer-oficial">
     <div class="footer-container">
         <div class="footer-info">
-            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
-            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
-            Fone: <strong>51 3288-4000</strong>
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
         </div>
         <div class="footer-logo">
-            <img src="logo-rs.png" alt="Governo RS">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
         </div>
     </div>
 </footer>
