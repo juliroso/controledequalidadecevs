@@ -79,53 +79,6 @@
         </ol>
     </div>
 
-    <div class="card-teste">
-        <h2>3. O Limite Físico dos Sistemas Digitais (Frequência de Nyquist)</h2>
-        <p style="font-size: 14px; color: #444;">Ao contrário do ecrã-filme analógico, a resolução espacial em sistemas digitais (CR/DR) está matematicamente limitada pelo tamanho do pixel do detetor (<em>pixel pitch</em>). O limite máximo teórico que o sistema consegue resolver antes de ocorrer perda de informação geométrica (aliasing) é dado pela Frequência de Nyquist ($f_N$):</p>
-        
-        <div class="caixa-calculo">
-            <div class="formula-math">
-                $$ f_N = \frac{1}{2 \cdot \Delta x} $$
-            </div>
-            <div class="formula-legenda">
-                • <strong>\(f_N\):</strong> Frequência de Nyquist (limite máximo de resolução em pl/mm).<br>
-                • <strong>\(\Delta x\):</strong> Tamanho do pixel (pixel pitch) em milímetros.<br><br>
-                <em>Exemplo:</em> Se um detetor DR tem um pixel de 100 &mu;m (0,1 mm), a sua resolução máxima teórica é \(1 / (2 \cdot 0,1) = 5\) pl/mm. Portanto, exigir 10 pl/mm deste equipamento seria fisicamente impossível.
-            </div>
-        </div>
-    </div>
-
-    <div class="card-teste" style="border-left-color: #F29509;">
-        <h2>4. Critérios de Tolerância (IN 92/2021)</h2>
-        <p>Devido à grande variedade de tecnologias de detetores (TFT, a-Se, Placas de Fósforo), a legislação brasileira é flexível, atrelando a tolerância à especificação do projeto do equipamento:</p>
-        
-        <div class="table-wrapper">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Tecnologia do Equipamento</th>
-                        <th>Nível de Tolerância (Aprovado)</th>
-                        <th>Nível de Restrição (Reprovado)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>Sistemas Convencionais (Filme)</strong></td>
-                        <td><span class="aceitavel">Geralmente &ge; 11 pl/mm a 13 pl/mm</span></td>
-                        <td><span class="restricao">Abaixo do estipulado em manual</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sistemas Digitais (CR / DR)</strong></td>
-                        <td><span class="aceitavel">Conforme as especificações do fabricante (ex: &ge; 5 pl/mm)</span></td>
-                        <td><span class="restricao">Valores inferiores à linha de base do fabricante</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota Técnica: Para avaliações mais rigorosas em aceitações de equipamentos digitais, utiliza-se a medição da Função de Transferência de Modulação (MTF) por software, em vez da simples inspeção visual humana do padrão de linhas.</p>
-    </div>
-</div>
-
 <footer class="footer-oficial">
     <div class="footer-container">
         <div class="footer-info">
