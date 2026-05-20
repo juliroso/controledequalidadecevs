@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Exatidão do Sistema de Colimação - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Formatação da Caixa de Cálculo */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: EXATIDÃO DO SISTEMA DE COLIMAÇÃO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Alinhamento do Campo de Radiação e limites da IN 92/2021</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Determinar a correspondência geométrica entre o campo luminoso de localização, o campo de radiação útil gerado pelo tubo e os bordos do recetor de imagem (bucky).</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após intervenções mecânicas no colimador ou troca do tubo.</p>
+        <p><strong>Materiais:</strong> Pequenos objetos radiopacos de referência (como moedas de metal ou réguas radiopacas milimetradas).</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia de Aquisição (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li>Ligar o indicador luminoso de campo do mamógrafo.</li>
+            <li>Colocar os objetos radiopacos (moedas) sobre a placa de cobertura do suporte de mama, alinhando as suas bordas perfeitamente com os limites visíveis da luz projetada (nas quatro direções: anterior, posterior, esquerda e direita).</li>
+            <li>Prestar atenção redobrada ao bordo adjacente à parede torácica, garantindo que o alinhamento siga a geometria exata exigida pelo fabricante.</li>
+            <li>Realizar uma exposição em modo manual utilizando uma técnica de baixa carga (mAs reduzido).</li>
+            <li>Processar o filme ou abrir a imagem digital bruta (RAW) no ecrã de diagnóstico para medir as distâncias.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo Estatístico</h2>
+        <p style="font-size: 14px; color: #444;">O desvio de alinhamento em qualquer uma das bordas é calculado de forma percentual relativamente à Distância Foco-Filme ou Foco-Detetor (DFF/DFD):</p>
+        
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ Desvio (\%) = \frac{\Delta x}{DFF} \times 100\% $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>\(\Delta x\):</strong> Desvio medido na imagem (distância em milímetros entre a borda do campo de radiação real e a borda do campo luminoso/recetor).<br>
+                • <strong>\(DFF\):</strong> Distância Foco-Filme ou Foco-Detetor nominal expressa em milímetros (geralmente 600 mm ou 650 mm na maioria dos mamógrafos).
+            </div>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>4. Critérios de Tolerância e Restrição (IN 92/2021)</h2>
+        <p>O fiscal sanitário deve confrontar as medições descritas no laudo com as tolerâncias estipuladas pela legislação brasileira:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Desvio em qualquer uma das bordas</strong></td>
+                        <td><span class="aceitavel">&le; 2% da DFF</span></td>
+                        <td><span class="restricao">&gt; 4% da DFF</span></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Soma dos desvios (bordas opostas)</strong></td>
+                        <td><span class="aceitavel">&le; 2% da DFF</span></td>
+                        <td><span class="restricao">&gt; 4% da DFF</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: O desalinhamento na borda da parede torácica é o erro mais grave. Se o feixe de radiação cortar antes do bucky, haverá perda de tecido mamário posterior na imagem. Se ultrapassar o bucky em direção à paciente, causará irradiação desnecessária de órgãos críticos (como pulmão e mediastino).</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnico-Sanitária em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
