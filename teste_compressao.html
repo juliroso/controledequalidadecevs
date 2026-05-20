@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Sistema de Compressão Automático - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Formatação da Caixa de Cálculo */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 125%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: SISTEMA DE COMPRESSÃO AUTOMÁTICO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Avaliação da Força de Compressão e Limites de Segurança</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Garantir que o sistema motorizado de compressão exerce uma força padronizada suficiente para imobilizar a mama e uniformizar o tecido, sem ultrapassar os limites máximos de segurança biomecânica da paciente.</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após manutenções no sistema mecânico/motor da bandeja.</p>
+        <p><strong>Equipamento Utilizado:</strong> Dinamômetro calibrado (ou balança de compressão mamográfica) e um bloco de material resiliente (espuma rígida ou borracha) para proteger a bandeja e o detetor contra danos mecânicos.</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia de Medição (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li>Posicionar o bloco de proteção/espuma sobre o suporte de mama (bucky).</li>
+            <li>Colocar o dinamômetro centralizado sobre o bloco de proteção, alinhado com o centro da bandeja de compressão.</li>
+            <li>Acionar o sistema mecânico de compressão motorizado automático através do controle manual ou do pedal do mamógrafo.</li>
+            <li>Permitir que a bandeja desça continuamente até que o sistema atinja a parada automática por torque/pressão nominal.</li>
+            <li>Registrar o valor máximo da força de compressão indicado no mostrador do dinamômetro.</li>
+            <li>Manter o sistema comprimido por cerca de 1 minuto para monitorar se ocorre perda gradual de pressão (fuga hidráulica ou mecânica).</li>
+            <li>Acionar o mecanismo de liberação manual de emergência para atestar o funcionamento dos dispositivos de segurança do equipamento.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>3. Metodologia de Conversão de Unidades</h2>
+        <p style="font-size: 14px; color: #444;">Muitos instrumentos de medição e laudos antigos expressam a força em quilograma-força (\(\text{kgf}\)). Para fins de avaliação legal e sanitária perante a IN 92/2021, a força deve ser convertida para Newtons (\(\text{N}\)) utilizando a constante da aceleração da gravidade padrão:</p>
+        
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ 1 \text{ kgf} = 9,8 \text{ N} $$
+                <br>
+                $$ F_{\text{Newtons}} = F_{\text{kgf}} \times 9,8 $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>\(F_{\text{Newtons}}\):</strong> Força final calculada em Newtons (\(\text{N}\)).<br>
+                • <strong>\(F_{\text{kgf}}\):</strong> Força lida diretamente no dinamômetro em quilograma-força (\(\text{kgf}\)).
+            </div>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #d32f2f;">
+        <h2>4. Critérios de Tolerância e Restrição (IN 92/2021)</h2>
+        <p>O fiscal deve conferir se a força máxima automática da bandeja se enquadra na janela ideal de compressão clínica diagnóstica:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Força de Compressão Automática</strong></td>
+                        <td><span class="aceitavel">150 N a 200 N</span><br><small>(Aprox. 15,3 a 20,4 kgf)</small></td>
+                        <td><span class="restricao">&lt; 70 N</span> (Insuficiente)<br>ou<br><span class="restricao">&gt; 300 N</span> (Risco de lesão física)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: Valores abaixo de 70 N geram imagens borradas por movimentação da paciente e aumentam a dose devido à falta de espessamento do tecido. Valores acima de 300 N configuram risco iminente de trauma mamário, exigindo interdição imediata do sistema automático de compressão.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnico-Sanitária em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
