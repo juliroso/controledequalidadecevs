@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Luminância do Negatoscópio - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: LUMINÂNCIA DO NEGATOSCÓPIO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Condições de Visualização Diagnóstica - IN 92/2021-Anvisa</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Verificar se o negatoscópio promove uma condição de visualização adequada para a mamografia, garantindo níveis de brilho suficientes para a correta avaliação das películas radiográficas.</p>
+        <p><strong>Frequência de Realização:</strong> Teste de aceitação, anual ou após reparos estruturais/troca de lâmpadas.</p>
+        <p><strong>Materiais:</strong> Fotômetro calibrado específico para medição de luminância em contato.</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia de Execução (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li>Ligar o negatoscópio e aguardar o tempo suficiente para que a emissão de luz dos tubos fluorescentes ou painéis LED estabilize.</li>
+            <li>Selecionar **cinco pontos de medida** distintos na superfície da tela protetora:
+                <ul class="lista-interna">
+                    <li>Um ponto localizado exatamente no **centro** da área útil de visualização.</li>
+                    <li>Os outros **quatro pontos** localizados nos cantos do negatoscópio, posicionados a pelo menos **50 mm (5 cm) de distância das bordas externas**.</li>
+                </ul>
+            </li>
+            <li>Posicionar o sensor do fotômetro em contato direto e perpendicular com a superfície do negatoscópio em cada um dos cinco pontos selecionados.</li>
+            <li>Registrar as leituras individuais de luminância obtidas.</li>
+            <li>Caso o serviço possua múltiplos negatoscópios na sala de laudos, repetir integralmente o procedimento para cada um deles.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>3. Critérios de Tolerância e Restrição</h2>
+        <p>Os limites estabelecidos seguem rigidamente o padrão de alto brilho exigido para a mamografia (valores consideravelmente maiores que os do radiodiagnóstico geral):</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Luminância da Tela</strong></td>
+                        <td><span class="aceitavel">$$ \ge 3000 \text{ cd/m}^2 $$</span></td>
+                        <td><span class="restricao">$$ \ge 2500 \text{ cd/m}^2 $$</span><br><small>(Abaixo de 2500 cd/m² o sistema está reprovado)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #d32f2f;">
+        <h2>4. Observações de Fiscalização Técnico-Sanitária</h2>
+        <ul class="lista-interna" style="line-height: 1.8; color: #444;">
+            <li><strong>Inspeção Visual In loco:</strong> O fiscal deve avaliar visualmente a necessidade de substituição de tubos fluorescentes ou LEDs defeituosos, piscantes ou com desgaste visível nas extremidades.</li>
+            <li><strong>Higienização e Conservação:</strong> Deve ser observada a falta de limpeza, a homogeneidade da cor dos tubos (evitar lâmpadas de tonalidades diferentes no mesmo painel), a presença de vibrações ou ruídos excessivos nos reatores.</li>
+            <li><strong>Ações Corretivas:</strong> Se o nível de luminância estiver abaixo do nível exigido ($< 3000 \text{ cd/m}^2$) ou se existir uma falta de uniformidade que supere a tolerância permitida, o serviço deve substituir imediatamente os tubos fluorescentes dos negatoscópios com baixo desempenho antes de liberar o uso para laudos diagnósticos.</li>
+        </ul>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
