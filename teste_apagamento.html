@@ -40,7 +40,6 @@
         .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
         .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
         .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
-        .mapa-link { color: white !important; font-weight: bold; text-decoration: underline; background: none !important; padding: 0; }
 
         @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
     </style>
@@ -49,44 +48,35 @@
 
 <header>
     <h1>TESTE: EFETIVIDADE DO CICLO DE APAGAMENTO</h1>
-    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Metodologia Digital (CR/DR) e Protocolo Espanhol (SEFM)</p>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Roteiro de Avaliação Visual - IN 92/2021</p>
 </header>
 
 <div class="container">
     <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
 
-    <!-- Informações Básicas -->
     <div class="card-teste">
         <h2>1. Dados do Teste</h2>
-        <p><strong>Objetivo:</strong> Avaliar a efetividade do ciclo de apagamento do receptor de imagem, garantindo que não haja acúmulo de imagens remanescentes (latentes) que possam interferir em exames subsequentes.</p>
-        <p><strong>Periodicidade:</strong> Teste de aceitação, anual ou após reparos.</p>
-        <p><strong>Equipamento Utilizado:</strong> Receptor de imagem (placas de fósforo CR ou detectores de painel plano DR) utilizados na rotina clínica do serviço.</p>
+        <p><strong>Objetivo:</strong> Verificar se o sistema de leitura e apagamento do receptor de imagem (placas de fósforo CR ou detectores DR) elimina completamente as informações de exames anteriores, impedindo o surgimento de "imagens fantasma".</p>
+        <p><strong>Periodicidade:</strong> Anual, na aceitação ou após manutenção no sistema óptico/eletrônico leitor.</p>
+        <p><strong>Equipamento Utilizado:</strong> Placa de chumbo espessa (ou objeto de forte atenuação) e o próprio receptor de imagem do serviço.</p>
     </div>
 
-    <!-- Metodologia -->
     <div class="card-teste">
-        <h2>2. Metodologia de Avaliação</h2>
-        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">De acordo com os protocolos internacionais (como o Espanhol SEFM-SEPR-SERAM), a verificação deste parâmetro exige os seguintes passos:</p>
-        
+        <h2>2. Metodologia de Execução</h2>
         <ol class="passo-a-passo">
-            <li>Expor o receptor de imagem com um objeto de alto contraste (ex: bloco de acrílico com chumbo ou degrau de alumínio) utilizando uma técnica clínica de alta dose.</li>
-            <li>Realizar o processo normal de leitura (digitalização) do chassi/receptor.</li>
-            <li>Acionar a função de "Zerar" (Apagamento Primário / <em>Primary Erasure</em>) do receptor de imagem no equipamento leitor.</li>
-            <li>Realizar uma nova leitura (digitalização) da mesma placa, <strong>sem realizar uma nova exposição a raios X</strong>.</li>
-            <li>Analisar a imagem resultante desta segunda leitura no monitor de laudo, aplicando o máximo de ajuste de janelamento (Window/Level) para buscar resquícios da exposição anterior.</li>
+            <li>Posicionar uma placa de chumbo cobrindo parcialmente a superfície do receptor de imagem (ou utilizar um objeto de alto contraste centralizado).</li>
+            <li>Realizar uma exposição utilizando uma técnica técnica elevada (mAs alto) para simular uma condição extrema de saturação do detector.</li>
+            <li>Processar/digitalizar o receptor de imagem normalmente no sistema.</li>
+            <li>Submeter o receptor de imagem ao ciclo padrão de apagamento do equipamento (apagar placa).</li>
+            <li>Imediatamente após o ciclo de apagamento, realizar uma nova leitura/digitalização do mesmo receptor, **sem efetuar nenhum disparo de raios X** (leitura em branco).</li>
+            <li>Abrir a imagem resultante desta segunda leitura na estação de trabalho/monitor de laudos.</li>
+            <li>Avaliar visualmente toda a extensão da imagem, aplicando ferramentas de zoom e ajustes severos de janelamento (brilho e contraste) para buscar contornos ou marcas da exposição anterior.</li>
         </ol>
     </div>
 
-    <!-- Observações Técnicas (Protocolo Espanhol) -->
-    <div class="card-teste" style="border-left-color: #748da6;">
-        <h2>3. Observações Clínicas (Sistemas CR)</h2>
-        <p>Conforme estabelecido no Protocolo Espanhol, as placas dos sistemas CR devem ser submetidas a um apagamento primário diariamente, antes de iniciar os exames em pacientes. Isso evita o acúmulo de imagens remanescentes provocadas pela radiação de fundo natural que diminui a sensibilidade da placa. O tempo que a leitora CR gasta no apagamento primário deve ser superior ao apagamento secundário (rápido) para garantir a sua efetividade.</p>
-    </div>
-
-    <!-- Tolerância e Resultados -->
     <div class="card-teste" style="border-left-color: #F29509;">
-        <h2>4. Critérios de Tolerância</h2>
-        <p>A presença de uma imagem residual ("imagem fantasma") compromete o contraste de exames subsequentes, podendo mascarar ou simular lesões.</p>
+        <h2>3. Critérios de Tolerância (IN 92/2021)</h2>
+        <p>A conformidade deste teste é estritamente qualitativa e visual, baseada na integridade física do sinal no receptor:</p>
         
         <div class="table-wrapper">
             <table>
@@ -99,26 +89,25 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Presença de Imagem Latente</strong></td>
-                        <td><span class="aceitavel">Ausência de imagem residual e artefatos. Imagem deve ser uniforme.</span></td>
-                        <td><span class="restricao">Presença visível de imagem fantasma ou artefatos.</span></td>
+                        <td><strong>Avaliação Visual da Placa</strong></td>
+                        <td><span class="aceitavel">Ausência completa de imagem residual (fantasma) ou artefatos estruturais.</span></td>
+                        <td><span class="restricao">Presença visível de imagem residual do objeto ou linhas fantasmas.</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: Se o laudo acusar a presença de imagem residual, o equipamento de leitura (CR) pode estar com as lâmpadas de apagamento queimadas/fracas ou o detector de painel plano (DR) necessita de calibração eletrônica imediata.</p>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: Sendo um teste puramente visual, a presença de qualquer sombra ou silhueta do objeto na segunda leitura indica falha mecânica ou esgotamento das lâmpadas de apagamento da leitora CR, comprometendo os laudos subsequentes do serviço.</p>
     </div>
 </div>
 
 <footer class="footer-oficial">
     <div class="footer-container">
         <div class="footer-info">
-            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE</strong><br>
-            Av. Ipiranga 5400 | Porto Alegre - RS | <a href="#" class="mapa-link">📍 mapa</a><br>
-            Fone: <strong>51 3288-4000</strong>
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
         </div>
         <div class="footer-logo">
-            <img src="logo-rs.png" alt="Governo RS">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
         </div>
     </div>
 </footer>
