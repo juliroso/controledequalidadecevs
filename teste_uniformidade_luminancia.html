@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Uniformidade da Luminância - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Formatação da Caixa de Fórmula */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: UNIFORMIDADE DA LUMINÂNCIA</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Monitores e Negatoscópios de Laudo — IN 92/2021-Anvisa</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste e Objetivos</h2>
+        <p><strong>Objetivo:</strong> Garantir que a distribuição de luminância (brilho) ao longo da superfície útil dos negatoscópios e/ou dos monitores de diagnóstico apresente uniformidade geométrica, mitigando variações espaciais que possam induzir a falsos negativos ou prejudicar a perceção de estruturas finas.</p>
+        <p><strong>Frequência de Realização:</strong> Teste de aceitação, anual ou após manutenções e reparações nos sistemas de retroiluminação.</p>
+        <p><strong>Materiais Necessários:</strong> Fotômetro de contacto calibrado para registo de luminância.</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia de Execução (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li><strong>Preparação dos Equipamentos:</strong>
+                <ul class="lista-interna">
+                    <li>Se for avaliado um <strong>Negatoscópio</strong>: ligar as luzes do painel pelo menos **20 minutos antes** de iniciar as medições para estabilização térmica das lâmpadas.</li>
+                    <li>Se for avaliado um <strong>Monitor Diagnóstico</strong>: assegurar que o ecrã está ligado e estabilizado no perfil de calibração padrão.</li>
+                </ul>
+            </li>
+            <li><strong>Marcação dos Pontos:</strong> Selecionar **cinco pontos geométricos de medição** na superfície ativa do ecrã ou do negatoscópio:
+                <ul class="lista-interna">
+                    <li>Um ponto localizado de forma centralizada ($L_c$).</li>
+                    <li>Quatro pontos distribuídos nos cantos periféricos da tela, posicionados a uma distância mínima de **50 mm (5 cm) em relação às bordas externas**.</li>
+                </ul>
+            </li>
+            <li><strong>Medição:</strong> Posicionar o fotômetro em contacto direto com a superfície em cada um dos cinco pontos estipulados e registar individualmente as leituras de luminância.</li>
+            <li><strong>Multiplicidade:</strong> No caso de o serviço possuir múltiplos monitores na estação de trabalho ou vários negatoscópios na sala de laudo, repetir o processo na íntegra para cada unidade em uso clínico.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo (Desvio Máximo)</h2>
+        <p style="font-size: 14px; color: #444; margin-bottom: 15px;">A análise da uniformidade baseia-se no cálculo do desvio percentual máximo ($M$). Dependendo da configuração física do sistema de visualização, aplica-se uma das seguintes equações:</p>
+        
+        <p><strong>A) Para um Equipamento Único de Visualização (Ecrã Individual ou Painel Único):</strong></p>
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ M = 100 \times \left| \frac{L_{disc} - L_c}{L_c} \right| $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>\(M\):</strong> Desvio máximo percentual da uniformidade (%).<br>
+                • <strong>\(L_c\):</strong> Valor de luminância medido no ponto central.<br>
+                • <strong>\(L_{disc}\):</strong> Valor de luminância mais discreto gravado (leitura periférica dos cantos que apresenta o maior desvio absoluto face ao centro).
+            </div>
+        </div>
+
+        <p style="margin-top: 25px;"><strong>B) Para Negatoscópios Compostos por Múltiplos Painéis Adjacentes:</strong></p>
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ M = 100 \times \left| \frac{L_{cx} - L_{mean}}{L_{mean}} \right| $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>\(L_{cx}\):</strong> Valor de luminância medido no centro de um painel específico \(x\).<br>
+                • <strong>\(L_{mean}\):</strong> Média aritmética calculada a partir das luminâncias centrais de todos os painéis integrados na estrutura examinada.
+            </div>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>4. Critérios de Tolerância</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Desvio Máximo de Uniformidade (\(M\))</strong></td>
+                        <td><span class="aceitavel">$$ \le 20\% $$</span></td>
+                        <td><span class="restricao">—</span><br><small>(Valores superiores a 20% implicam a reprovação e revisão do sistema)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #d32f2f;">
+        <h2>5. Boas Práticas e Condições de Instalação</h2>
+        <ul class="lista-interna" style="line-height: 1.8; color: #444;">
+            <li><strong>Posicionamento Ergonómico:</strong> Os negatoscópios e monitores devem estar dispostos no ambiente de modo a evitar a incidência de luz direta proveniente de janelas, outras workstations ou fontes externas brilhantes que gerem reflexos especulares na face do ecrã.</li>
+            <li><strong>Uso de Máscaras Ajustáveis:</strong> No caso de negatoscópios convencionais, o serviço deve disponibilizar máscaras funcionais opacas nas áreas ao redor das películas mamográficas. Isto serve para excluir a luz extravasa (luz periférica que escapa pelas bordas do filme), otimizando a perceção visual das densidades máximas da imagem e elevando o contraste percetível de lesões sutis.</li>
+            <li><strong>Manutenção Preventiva:</strong> O avaliador técnico deve inspecionar fisicamente a necessidade de substituição de tubos fluorescentes ou barras de LED que manifestem fim de vida útil (extremidades escurecidas), falhas estruturais, sujidade acumulada nas telas difusoras ou vibrações eletromecânicas nos reatores.</li>
+        </ul>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
