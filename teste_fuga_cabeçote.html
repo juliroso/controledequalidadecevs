@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Radiação de Fuga do Cabeçote - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Formatação da Caixa de Fórmula */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: RADIAÇÃO DE FUGA DO CABEÇOTE</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Segurança Física do Tubo de Raios X — IN 92/2021-Anvisa</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Avaliar a eficácia da blindagem do invólucro protetor (cabeçote) do tubo de raios X, verificando se os níveis de radiação dispersa para o ambiente estão dentro dos limites legais de segurança.</p>
+        <p><strong>Frequência de Realização:</strong> Teste de aceitação, **quadrienal** (a cada 4 anos) ou imediatamente após modificações ou reparações estruturais nos componentes do tubo.</p>
+        <p><strong>Materiais:</strong> Detetor de radiação apropriado para a medição de radiação de fuga (câmara de ionização de grande volume ou detetor equivalente).</p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia de Execução (Roteiro Prático)</h2>
+        <ol class="passo-a-passo">
+            <li>Posicionar uma folha de chumbo espessa diretamente na saída do colimador para garantir o bloqueio completo do feixe útil (nenhuma radiação primária deve escapar).</li>
+            <li>É obrigatório que o operador vista os EPIs plumbíferos adequados para assegurar a sua proteção radiológica durante as exposições.</li>
+            <li>Cobrir externamente a superfície do cabeçote com cassetes carregados (ou filmes radiográficos para exposição direta), identificando rigorosamente a posição geométrica de cada um.</li>
+            <li>Realizar uma exposição selecionando manualmente um valor de kVp clínico elevado, deixando o sistema de exposição automático (CAE) definir o valor de mAs.</li>
+            <li>Após o processamento/leitura dos filmes, inspecioná-los visualmente para identificar as regiões que apresentam os maiores graus de escurecimento (as quais indicam pontos potenciais de fuga de radiação).</li>
+            <li>**Caso algum ponto de fuga de radiação seja detetado:**
+                <ul class="lista-interna">
+                    <li>Posicionar a câmara de ionização direcionada para o exato local onde o vazamento foi percebido.</li>
+                    <li>Manter o detetor a uma distância conhecida e próxima do ponto focal para obter uma leitura confiável, respeitando o limite mínimo de **não menos de 20 cm de distância do ponto focal**.</li>
+                    <li>Efetuar um novo disparo e registar a leitura de radiação ($K_0$) e o carregamento real aplicado ($mAs_0$).</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo (Normalização das Grandezas)</h2>
+        <p style="font-size: 14px; color: #444; margin-bottom: 15px;">Para avaliar a conformidade regulatória, as leituras obtidas pelo instrumento de medição devem ser transformadas para a unidade de taxa de kerma por hora ($\text{mGy/h}$), normalizadas para uma distância padrão de 1 metro do foco e extrapoladas para o carregamento contínuo máximo do tubo durante 1 hora, aplicando a seguinte fórmula:</p>
+        
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ \dot{K}_{RF} = \frac{mAs_{max}}{mAs_0} \times K_0 \times d^2 $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>\( \dot{K}_{RF} \):</strong> Taxa de vazamento de radiação (extrapolada para a condição limite de 1 hora a 1 metro), expressa em \(\text{mGy/h}\).<br>
+                • <strong>\( mAs_{max} \):</strong> Corrente máxima contínua permitida por hora para o tubo de raios X, especificada no manual do fabricante.<br>
+                • <strong>\( mAs_0 \):</strong> Carga radiográfica real (carregamento do tubo) utilizada e registada durante o disparo de teste.<br>
+                • <strong>\( K_0 \):</strong> Leitura direta de radiação registada pelo detetor.<br>
+                • <strong>\( d \):</strong> Distância expressa em metros entre o ponto focal e o local onde a câmara de ionização foi posicionada.
+            </div>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>4. Critérios de Tolerância e Restrição (IN 92/2021)</h2>
+        <p>O fiscal sanitário deve confrontar o valor final da taxa calculada com os limiares de segurança estipulados:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Taxa de Radiação de Fuga do Cabeçote</strong></td>
+                        <td><span class="aceitavel">$$ \le 1,0 \text{ mGy/h a 1 m} $$</span></td>
+                        <td><span class="restricao">$$ > 2,0 \text{ mGy/h a 1 m} $$</span><br><small>(Exceder este limiar indica falha crítica de blindagem)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #666; margin-top: 15px;">* Nota de Fiscalização: Caso os resultados ultrapassem o nível de restrição, o mamógrafo apresenta risco radiológico imediato para ocupações adjacentes e técnicos, devendo a operação clínica ser suspensa até à revisão mecânica da cúpula pelo responsável de manutenção.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnico-Sanitária em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
