@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Luminância dos Monitores para Diagnóstico - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: LUMINÂNCIA DOS MONITORES PARA DIAGNÓSTICO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Estabilidade de Imagem e Padrão DICOM GSDF — IN 92/2021-Anvisa</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <div class="card-teste">
+        <h2>1. Dados do Teste e Objetivos</h2>
+        <p><strong>Objetivo:</strong> Garantir que os monitores da estação de trabalho possuem o brilho e contraste adequados, assegurar que a resposta de luminância seja perceptivelmente linear e confirmar que múltiplos monitores correspondam entre si para uma exibição consistente. O teste certifica a correta calibração e aderência ao padrão <strong>DICOM GSDF</strong> (Grayscale Standard Display Function).</p>
+        <p><strong>Frequência de Realização:</strong> Teste de aceitação, anual ou após qualquer tipo de reparo no sistema de exibição.</p>
+        <p><strong>Materiais Necessários:</strong>
+            <ul class="lista-interna">
+                <li>Fotômetro calibrado para medir luminância (de contato ou telescópico);</li>
+                <li>Medidor de iluminação ambiental (luxímetro);</li>
+                <li>Conjunto de imagens de teste <strong>TG18-LN12</strong> com cabeçalho DICOM (correspondendo à modalidade do sistema).</li>
+            </ul>
+        </p>
+    </div>
+
+    <div class="card-teste">
+        <h2>2. Metodologia de Execução (Passo a Passo)</h2>
+        <ol class="passo-a-passo">
+            <li>Ajustar a iluminação da sala para o exato nível de luminosidade utilizado na rotina clínica quando é realizado o laudo das imagens de mamografia.</li>
+            <li>Abrir a primeira imagem do padrão de teste <strong>TG18-LN12</strong> no monitor diagnóstica.</li>
+            <li>Ajustar os parâmetros de exibição: definir o <em>window level</em> (nível de janela) para a metade do seu valor máximo e o <em>window width</em> (largura de janela) para a escala total, garantindo que o padrão preencha o ecrã inteiro (uma imagem por monitor).</li>
+            <li>Efetuar a medição com o instrumento:
+                <ul class="lista-interna">
+                    <li>Se for utilizado um <strong>Fotômetro Telescópico</strong>: apontar a região sensível do medidor diretamente para o centro do quadrado de teste.</li>
+                    <li>Se for utilizado um <strong>Fotômetro de Contato</strong>: posicionar a região sensível do instrumento firmemente contra o ecrã do monitor, centralizado no quadrado de teste.</li>
+                </ul>
+            </li>
+            <li>Repetir integralmente os procedimentos de medição para cada um dos níveis de luminância existentes no conjunto de imagens do padrão TG18-LN12.</li>
+        </ol>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>3. Critérios de Tolerância</h2>
+        <p>A luminância máxima medida na estação de trabalho deve cumprir com o limiar mínimo de brilho estipulado para a alta resolução mamográfica:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Parâmetro Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Luminância Máxima do Monitor</strong></td>
+                        <td><span class="aceitavel">$$ \ge 350 \text{ cd/m}^2 $$</span></td>
+                        <td><span class="restricao">—</span><br><small>(O não cumprimento do limite mínimo implica reprovação imediata)</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="card-teste" style="border-left-color: #d32f2f;">
+        <h2>4. Condições e Controlo do Ambiente de Laudo</h2>
+        <p style="color: #444; margin-bottom: 10px;">Para garantir a reprodutibilidade técnica do teste e evitar interferência de luz parasita (glare), o ambiente de execução deve cumprir com as seguintes regras rígidas:</p>
+        <ul class="lista-interna" style="line-height: 1.8; color: #444;">
+            <li><strong>Luz Ambiental:</strong> A luz principal da sala de leitura deve estar completamente desligada no momento das medições.</li>
+            <li><strong>Isolamento Luminoso:</strong> Todas as cortinas e as portas de acesso ao corredor devem ser mantidas totalmente fechadas para bloquear fontes externas de iluminação.</li>
+            <li><strong>Fontes Secundárias:</strong> Todos os negatoscópios presentes na sala que possam projetar luz direta ou reflexos na face do monitor sob teste devem estar desligados ou completamente mascarados.</li>
+        </ul>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnica em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
