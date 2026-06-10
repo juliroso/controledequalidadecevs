@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste: Integridade dos Chassis e Cassetes - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+        th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: INTEGRIDADE DOS CHASSIS E CASSETES</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Manutenção de Receptores e Controle de Artefatos — IN 92/2021-Anvisa</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <!-- Dados Gerais -->
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Verificar a integridade física e estrutural dos chassis e cassetes utilizados no serviço de mamografia. Este ensaio evita o surgimento de artefatos de imagem provocados por sujidade, arranhões, infiltração de luz ou danos nas placas de fósforo internas, que poderiam mimetizar ou ocultar microcalcificações patológicas.</p>
+        <p><strong>Periodicidade:</strong> Teste de aceitação e **semestral**.</p>
+        <p><strong>Componentes Inspecionados:</strong> Estrutura externa do cassete/chassis, travas mecânicas, placas de fósforo internas (CR) e écrans reforçadores (sistemas convencionais).</p>
+    </div>
+
+    <!-- Metodologia Prática -->
+    <div class="card-teste">
+        <h2>2. Metodologia de Execução</h2>
+        <p style="color: #444; font-size: 14px; margin-bottom: 15px;">A avaliação dos receptores de imagem baseia-se numa rotina rigorosa de inspeção técnica:</p>
+        <ol class="passo-a-passo">
+            <li>Reunir todos os chassis e cassetes ativos utilizados na rotina clínica do serviço de mamografia.</li>
+            <li><strong>Inspeção Mecânica Externa:</strong> Avaliar a carcaça plástica ou metálica à procura de rachaduras, desgastes nas bordas, empenamentos ou falhas nas travas de fechamento que possam comprometer a vedação contra a luz ambiente.</li>
+            <li><strong>Inspeção Interna (Limpeza e Conservação):</strong> Abrir cuidadosamente cada chassi num ambiente limpo e inspecionar a superfície interna:
+                <ul class="lista-interna">
+                    <li>Nos sistemas digitais indiretos (CR), avaliar as condições físicas da **Placa de Fósforo** buscando arranhões, descamações ou poeira acumulada.</li>
+                    <li>Nos sistemas convencionais, inspecionar o **Écran** verificando o estado de conservação, bolhas de ar ou perda de contato mecânico com o filme.</li>
+                </ul>
+            </li>
+            <li>Registrar individualmente a conformidade de cada componente por meio do seu número de identificação/série e tamanho.</li>
+        </ol>
+    </div>
+
+    <!-- Critérios de Avaliação e Limites Normativos -->
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>3. Critérios de Tolerância e Restrição</h2>
+        <p>Por ser um teste de natureza qualitativa e mecânica, a integridade dos receptores deve ser absoluta:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Componente Avaliado</th>
+                        <th>Nível de Tolerância (Aprovado)</th>
+                        <th>Nível de Restrição (Reprovado)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Chassis e Cassetes</strong></td>
+                        <td class="aceitavel">Totalmente Íntegros</td>
+                        <td class="restricao">Presença de trincas, falhas de vedação ou danos estruturais</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Placa de Fósforo / Écran</strong></td>
+                        <td class="aceitavel">Conforme (Sem riscos, manchas ou sujidade)</td>
+                        <td class="restricao">Não Conforme (Presença de riscos ou desgaste na camada ativa)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Notas de Fiscalização do CEVS -->
+    <div class="card-teste" style="border-left-color: #d32f2f;">
+        <h2>4. Diretrizes de Fiscalização Técnico-Sanitária</h2>
+        <ul class="lista-interna" style="line-height: 1.8; color: #444;">
+            <li><strong>Rastreabilidade Obrigatória:</strong> O fiscal deve conferir se todos os cassetes listados no laudo possuem identificação física unívoca gravada no próprio corpo do chassi (etiqueta ou gravação interna), cruzando os dados com a tabela de resultados do relatório técnico.</li>
+            <li><strong>Controle de Artefatos:</strong> Cassetes CR que apresentem riscos profundos na placa de fósforo provocam linhas brancas retilíneas na imagem médica. Devido à alta gravidade desse tipo de artefato, o receptor afetado deve ser interditado e substituído de imediato pelo serviço.</li>
+            <li><strong>Cronograma Semestral:</strong> O serviço de saúde deve comprovar a realização do teste duas vezes por ano. A ausência de um dos laudos semestrais configura não conformidade sanitária perante as exigências vigentes.</li>
+        </ul>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnico-Sanitária em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
