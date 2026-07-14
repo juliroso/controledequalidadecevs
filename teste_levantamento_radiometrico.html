@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Levantamento Radiométrico - CEVS</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Script do MathJax para renderizar as equações em blocos centralizados -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+        header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+        h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+        
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+        
+        /* Cards de Informação */
+        .card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+        .card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+        
+        /* Listas */
+        .passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+        .passo-a-passo li { margin-bottom: 10px; }
+        .passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+        .lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+        .lista-interna li { margin-bottom: 5px; color: #555; }
+
+        /* Formatação da Caixa de Cálculo */
+        .caixa-calculo { background-color: #e8ebf2; border-left: 5px solid #00004B; padding: 25px 20px; margin: 20px 0; border-radius: 4px; overflow-x: auto; }
+        .formula-math { color: #00004B; text-align: center; margin-bottom: 20px; font-size: 120%; }
+        .formula-legenda { font-size: 13px; color: #444; line-height: 1.6; border-top: 1px solid #ccc; padding-top: 15px; }
+
+        /* Tabela de Resultados/Tolerância */
+        .table-wrapper { overflow-x: auto; margin-top: 15px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        th, td { padding: 12px; text-align: center; border: 1px solid #ddd; font-size: 14px; }
+        th { background-color: #f5f5f5; color: #333; font-weight: bold; }
+        
+        /* Cores de Tolerância */
+        .aceitavel { color: #2e7d32; font-weight: bold; } 
+        .restricao { color: #d32f2f; font-weight: bold; } 
+
+        /* Rodapé Oficial */
+        .footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+        .footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+
+        @media (max-width: 768px) { .footer-container { flex-direction: column; text-align: center; gap: 20px; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TESTE: LEVANTAMENTO RADIOMÉTRICO</h1>
+    <p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Segurança de Barreiras e Blindagens — IN 92/2021 & RDC 330/2019</p>
+</header>
+
+<div class="container">
+    <a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+    <!-- Dados Gerais -->
+    <div class="card-teste">
+        <h2>1. Dados do Teste</h2>
+        <p><strong>Objetivo:</strong> Verificar se os níveis de dose equivalente a que estão expostos trabalhadores e indivíduos do público nas áreas adjacentes à sala de mamografia estão de acordo com as restrições estabelecidas na legislação.</p>
+        <p><strong>Frequência de Realização:</strong> Teste de aceitação, <strong>quadrienal</strong> ou após modificações na sala (reformas), nos equipamentos ou nos procedimentos.</p>
+        <p><strong>Materiais:</strong>
+            <ul class="lista-interna">
+                <li>Monitor de área (câmara de ionização para radiação de baixas energias) devidamente calibrado;</li>
+                <li>Objeto espalhador (simulador de acrílico ou água) simulando uma mama grande;</li>
+                <li>Trena para medição de distâncias.</li>
+            </ul>
+        </p>
+    </div>
+
+    <!-- Metodologia Prática -->
+    <div class="card-teste">
+        <h2>2. Metodologia de Execução (Roteiro Prático)</h2>
+        
+        <h3>Fase A: Croqui da Sala</h3>
+        <ol class="passo-a-passo">
+            <li>Desenhar a planta da sala de raios X, anotando as dimensões exatas e identificando o que há em cada uma das áreas adjacentes (ex: recepção, corredor, exterior).</li>
+            <li>Identificar no desenho a posição exata do tubo de raios X, painel de comando, biombo, portas e janelas.</li>
+            <li>Demarcar os pontos de medição de interesse situados dentro e fora da sala (onde as pessoas costumam permanecer).</li>
+        </ol>
+
+        <h3>Fase B: Parâmetros e Barreiras</h3>
+        <ol class="passo-a-passo" start="4">
+            <li>Selecionar a maior tensão do tubo (kVp) utilizada na rotina clínica de exames.</li>
+            <li>Selecionar a corrente (mA) e o tempo de exposição (t) adequados ao tempo de resposta do monitor de área, sem forçar a carga limite do mamógrafo.</li>
+            <li>Definir o maior tamanho de campo permitido no colimador.</li>
+            <li><strong>Barreiras Primárias:</strong> Apontar o feixe para a barreira que se quer avaliar, posicionar o objeto espalhador no suporte de mama e efetuar a medição com o monitor posicionado imediatamente atrás da estrutura pelo lado de fora.</li>
+            <li><strong>Barreiras Secundárias (Radiação Espalhada/Fuga):</strong> Colocar o objeto espalhador no suporte na projeção crânio-caudal, acionar a compressão e efetuar disparos medindo a radiação atrás dos biombos, portas e visores protetores.</li>
+        </ol>
+    </div>
+
+    <!-- Metodologia de Cálculos -->
+    <div class="card-teste">
+        <h2>3. Metodologia de Cálculo (Carga Semanal e Dose Equivalente Anual)</h2>
+        <p style="font-size: 14px; color: #444; margin-bottom: 15px;">Para extrapolar a leitura momentânea do medidor para uma taxa realista de ocupação de um ano inteiro, aplicam-se as seguintes etapas matemáticas:</p>
+        
+        <h3>Passo A: Conversão para Dose Externa (H<sub>p</sub> ou H*(10))</h3>
+        <p style="font-size: 13px; color: #555;">Se a leitura do monitor estiver numa unidade física diferente de dose equivalente, deve ser multiplicada pelo fator de conversão:</p>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Unidade Lida no Monitor</th>
+                        <th>Fator Multiplicativo</th>
+                        <th>Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Exposição (mR)</td>
+                        <td>x 0,01</td>
+                        <td><strong>= Dose Externa (mSv)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Dose Absorvida no Ar (mrad)</td>
+                        <td>x 0,0114</td>
+                        <td><strong>= Dose Externa (mSv)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Kerma no Ar (mGy)</td>
+                        <td>x 1,14</td>
+                        <td><strong>= Dose Externa (mSv)</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Equivalente de Dose Ambiente</td>
+                        <td>x 1,00</td>
+                        <td><strong>= Dose Externa (mSv)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Passo B: Normalização pela Corrente (mSv/mA.min)</h3>
+        <p style="font-size: 13px; color: #555;">Dependendo do modo como o monitor registou a exposição, calcula-se a taxa por unidade de carga de corrente-tempo:</p>
+        
+        <p><strong>Para medidas em Modo Taxa de Dose:</strong></p>
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ \text{Taxa Normalizada} = \frac{\text{Taxa de Dose Externa (mSv/h)}}{60 \times I \text{ (mA)}} $$
+            </div>
+        </div>
+
+        <p><strong>Para medidas em Modo Dose Integrada:</strong></p>
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ \text{Dose Normalizada} = \frac{\text{Dose Externa (mSv)} \times 60}{\text{mAs real de disparo}} $$
+            </div>
+        </div>
+
+        <h3>Passo C: Extrapolação para Carga Semanal e Anual</h3>
+        <p style="font-size: 13px; color: #555;">Por fim, multiplica-se o desvio normalizado pela Carga de Trabalho Semanal Média (W), Fator de Uso (U) daquela parede/barreira e Fator de Ocupação (T) do local adjacente:</p>
+        <div class="caixa-calculo">
+            <div class="formula-math">
+                $$ \text{Dose Semanal} (\text{mSv/sem}) = \text{Dose Normalizada} \times [W \times U \times T] $$
+            </div>
+            <div class="formula-legenda">
+                • <strong>W (Carga de trabalho):</strong> Padrão de 2000 mA.min/sem para mamografia (ou dados reais do serviço).<br>
+                • <strong>U (Fator de uso):</strong> Fração de tempo em que o feixe aponta para a parede (Piso = 0,5; Paredes = 0,25).<br>
+                • <strong>T (Fator de ocupação):</strong> Tipo de permanência no local adjacente (Integral/Recepção = 1; Salas de Espera = 1/4; Vestiário = 1/16; Jardim/Exterior = 1/32).<br><br>
+                <em>Nota: Para obter a <strong>Dose Anual (mSv/ano)</strong>, basta multiplicar o resultado semanal obtido por 50 semanas/ano.</em>
+            </div>
+        </div>
+    </div>
+
+    <!-- Critérios de Avaliação e Limites Normativos -->
+    <div class="card-teste" style="border-left-color: #F29509;">
+        <h2>4. Critérios de Restrição de Dose (RDC 330/2019)</h2>
+        <p>Os valores calculados devem ser confrontados com os limites de projeto de barreira estabelecidos na legislação brasileira:</p>
+        
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Classificação da Área Adjacente</th>
+                        <th>Restrição de Dose Semanal</th>
+                        <th>Restrição de Dose Anual</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Área Controlada</strong> (Dentro do setor, salas de exame)</td>
+                        <td class="aceitavel">&le; 0,10 mSv/sem</td>
+                        <td class="aceitavel">&le; 5,0 mSv/ano</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Área Livre</strong> (Recepção, calçadas, salas de espera públicas)</td>
+                        <td class="restricao">&le; 0,01 mSv/sem</td>
+                        <td class="restricao">&le; 0,50 mSv/ano</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 12px; color: #d32f2f; margin-top: 15px; font-weight: bold;">* ATENÇÃO FISCAL: Qualquer ponto de medição na área externa que ultrapassar estes valores indica blindagem de chumbo ou argamassa baritada insuficiente (ou danificada). O serviço deve ser autuado para realizar correções imediatas de blindagem sob pena de interdição da sala.</p>
+    </div>
+</div>
+
+<footer class="footer-oficial">
+    <div class="footer-container">
+        <div class="footer-info">
+            <strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+            Referência Técnico-Sanitária em Radiodiagnóstico
+        </div>
+        <div class="footer-logo">
+            <img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
