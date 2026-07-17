@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teste: Alinhamento da Bandeja de Compressão - CEVS</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+
+.container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+.btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+
+/* Cards de Informação */
+.card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+.card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+
+/* Listas */
+.passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+.passo-a-passo li { margin-bottom: 10px; }
+.passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+.lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+.lista-interna li { margin-bottom: 5px; color: #555; }
+
+/* Tabela de Resultados/Tolerância */
+.table-wrapper { overflow-x: auto; margin-top: 15px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+
+/* Cores de Tolerância */
+.aceitavel { color: #2e7d32; font-weight: bold; }
+.restricao { color: #d32f2f; font-weight: bold; }
+
+/* Rodapé Oficial */
+.footer-oficial { background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6; }
+.footer-container { max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo img { max-height: 60px; filter: brightness(0) invert(1); }
+</style>
+</head>
+<body>
+
+<header>
+<h1>TESTE: ALINHAMENTO DA BANDEJA DE COMPRESSÃO</h1>
+<p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Avaliação Mecânica e Geometria do Sistema — IN 92/2021-Anvisa</p>
+</header>
+
+<div class="container">
+<a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+<!-- Dados Gerais -->
+<div class="card-teste">
+<h2>1. Dados do Teste</h2>
+<p><strong>Objetivo:</strong> Avaliar o alinhamento e o paralelismo da bandeja de compressão quando esta exerce atividade de compressão ativa sobre o simulador, garantindo que o tecido mamário seja espessado de forma totalmente uniforme.</p>
+<p><strong>Frequência de Realização:</strong> Teste de aceitação, anual ou após reparos mecânicos no braço de compressão.</p>
+<p><strong>Materiais Necessários:</strong>
+<ul class="lista-interna">
+<li>Placa de espuma ou emborrachado com espessura de 5 cm e dimensões de 20 cm x 15 cm (densidade adequada para simular a mama);</li>
+<li>Fita métrica, régua ou paquímetro;</li>
+<li>Bandejas de compressão dos tamanhos utilizados na rotina clínica (usualmente 18 cm x 24 cm e 24 cm x 30 cm).</li>
+</ul>
+</p>
+</div>
+
+<!-- Metodologia Prática baseada no roteiro -->
+<div class="card-teste">
+<h2>2. Metodologia de Execução</h2>
+<ol class="passo-a-passo">
+<li>Posicionar a placa de espuma sobre o suporte de mama (bucky), simulando o posicionamento ideal para um exame clínico de rotina.</li>
+<li>Montar o primeiro tamanho de bandeja de compressão (18 cm x 24 cm) no braço mecânico do mamógrafo.</li>
+<li>Acionar a compressão motorizada sobre a espuma até atingir a força de compressão máxima permitida pelo equipamento.</li>
+<li>Com o auxílio de uma fita métrica, régua ou paquímetro, medir rigorosamente a distância vertical entre a face inferior da bandeja e a superfície superior do bucky.</li>
+<li>Esta medição deve ser realizada nas <strong>quatro arestas da placa de espuma</strong> (cantos periféricos), anotando minuciosamente cada valor encontrado.</li>
+<li>Aliviar a pressão, substituir o acessório pelo segundo tamanho de bandeja (24 cm x 30 cm) e repetir integralmente todo o procedimento de compressão e medição dos cantos.</li>
+</ol>
+</div>
+
+<!-- Critérios de Avaliação e Limites Normativos -->
+<div class="card-teste" style="border-left-color: #F29509;">
+<h2>3. Critérios de Tolerância e Restrição</h2>
+<p style="color: #444; font-size: 14px; margin-bottom: 15px;">A conformidade é calculada por meio da <strong>variação máxima</strong> encontrada (subtração entre o maior e o menor valor medido entre as quatro arestas de uma mesma bandeja):</p>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Parâmetro Avaliado</th>
+<th>Nível de Tolerância (Aprovado)</th>
+<th>Nível de Restrição (Reprovado)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Variação Máxima entre as Medidas</strong></td>
+<td class="aceitavel">&le; 5 mm</td>
+<td class="restricao">&gt; 10 mm</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p style="font-size: 13px; color: #333; margin-top: 15px; font-weight: bold;">
+* Nota Técnica de Avaliação: Com base nos critérios geométricos, a variação máxima permitida entre todas as medidas coletadas não deve ultrapassar a tolerância de 5 mm.
+</p>
+</div>
+
+<!-- Observações do Roteiro -->
+<div class="card-teste" style="border-left-color: #d32f2f;">
+<h2>4. Diretrizes de Fiscalização Sanitária (CEVS)</h2>
+<ul class="lista-interna" style="line-height: 1.8; color: #444;">
+<li><strong>Orientação do Desalinhamento:</strong> Durante a auditoria do laudo, o fiscal deve lembrar que a deformação perpendicular à parede do tórax é menos importante do que a deformação paralela à parede do tórax. Um desalinhamento paralelo significa que uma das laterais da mama receberá menos radiação e mais compressão que a outra, gerando assimetria técnica grave no exame.</li>
+<li><strong>Folga Mecânica:</strong> Valores de variação acima do nível de restrição (&gt; 10 mm) indicam desgaste severo nas engrenagens do braço ou empenamento do acrílico da bandeja. Esta condição exige a suspensão imediata do uso clínico do acessório afetado para evitar desconforto excessivo e exames com padrão inadequado.</li>
+</ul>
+</div>
+</div>
+
+<footer class="footer-oficial">
+<div class="footer-container">
+<div class="footer-info">
+<strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+Referência Técnico-Sanitária em Radiodiagnóstico
+</div>
+<div class="footer-logo">
+<img src="logo-rs.png" alt="Governo RS" style="filter: brightness(0) invert(1);">
+</div>
+</div>
+</footer>
+
+</body>
+</html>
