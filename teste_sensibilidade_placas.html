@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teste: Diferença de Sensibilidade entre Placas - CEVS</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 0; background-color: #F2F2F2; color: #333; }
+header { background-color: #4A0352; color: white; padding: 30px; text-align: center; border-bottom: 5px solid #F29509; }
+h1 { font-family: 'Poppins', sans-serif; text-transform: uppercase; margin: 0; font-size: 24px; }
+
+.container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+.btn-voltar { display: inline-block; margin-bottom: 20px; color: #00004B; text-decoration: none; font-weight: bold; font-family: 'Poppins', sans-serif; }
+
+/* Cards de Informação */
+.card-teste { background: white; border-radius: 8px; padding: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 25px; border-left: 8px solid #00004B; }
+.card-teste h2 { color: #4A0352; font-family: 'Poppins', sans-serif; font-size: 20px; margin-top: 0; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px; }
+
+/* Listas */
+.passo-a-passo { padding-left: 20px; line-height: 1.8; color: #444; }
+.passo-a-passo li { margin-bottom: 10px; }
+.passo-a-passo li::marker { color: #F29509; font-weight: bold; }
+.lista-interna { padding-left: 20px; margin-top: 5px; list-style-type: square; }
+.lista-interna li { margin-bottom: 5px; color: #555; }
+
+/* Tabela de Resultados/Tolerância */
+.table-wrapper { overflow-x: auto; margin-top: 15px; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px; text-align: center; border-bottom: 1px solid #eee; font-size: 14px; }
+th { background-color: #f9f9f9; color: #333; font-weight: bold; }
+
+/* Cores de Tolerância */
+.aceitavel { color: #2e7d32; font-weight: bold; }
+.restricao { color: #d32f2f; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>TESTE: DIFERENÇA DE SENSIBILIDADE ENTRE AS PLACAS</h1>
+<p style="margin-top:10px; opacity: 0.9; font-family: 'Poppins', sans-serif;">Uniformidade de Resposta do Parque de Placas CR — IN 92/2021-Anvisa</p>
+</header>
+
+<div class="container">
+<a href="testes.html" class="btn-voltar">← Voltar para a Tabela de Testes</a>
+
+<!-- Dados Gerais -->
+<div class="card-teste">
+<h2>1. Dados do Teste</h2>
+<p><strong>Objetivo:</strong> Confirmar a uniformidade na sensibilidade das placas de fósforo utilizadas na mamografia CR de um mesmo serviço, garantindo que o desempenho clínico e o nível de ruído permaneçam homogêneos independentemente do cassete escolhido para o exame.</p>
+<p><strong>Frequência de Realização:</strong> Teste de aceitação, anual ou após reparações no sistema óptico/leitor de CR.</p>
+<p><strong>Materiais Necessários:</strong>
+<ul class="lista-interna">
+<li>Todas as placas de fósforo (cassetes) usadas na rotina prática do serviço de mamografia;</li>
+<li>Placa de PMMA com espessura uniforme (de 40 a 60 mm), preferencialmente larga o suficiente para cobrir totalmente a superfície do receptor de imagem.</li>
+</ul>
+</p>
+</div>
+
+<!-- Metodologia Prática -->
+<div class="card-teste">
+<h2>2. Metodologia de Execução (Roteiro Prático)</h2>
+<ol class="passo-a-passo">
+<li>Selecionar e reunir todas as placas de fósforo que serão avaliadas, efetuando uma identificação visual unívoca de cada cassete.</li>
+<li>Posicionar a placa de PMMA sobre o suporte de mama (bucky), assegurando que os sensores do Controle Automático de Exposição (CAE) fiquem completamente cobertos e localizados sob a parte central do acrílico.</li>
+<li>Realizar uma exposição utilizando o modo automático (CAE) e registrar o valor de mAs gerado pelo disparo e o Índice de Exposição (EI) fornecido pelo sistema para aquela placa.</li>
+<li>Repetir exatamente este mesmo procedimento de disparo automático e coleta de dados para todas as demais placas do mesmo tamanho sob avaliação.</li>
+<li><strong>Análise Estatística Básica:</strong>
+<ul class="lista-interna">
+<li>Calcular o valor médio de mAs obtido a partir de todos os disparos do conjunto de placas examinadas.</li>
+<li>Calcular o valor médio da Relação Sinal-Ruído (RSR) ou Índice de Exposição do grupo.</li>
+<li>Determinar a diferença absoluta e a porcentagem individual de mAs e RSR de cada placa em relação às médias calculadas para o grupo.</li>
+</ul>
+</li>
+<li>Abrir individualmente cada uma das imagens geradas na estação de trabalho diagnóstico e realizar uma varredura visual minuciosa à procura de artefatos físicos ou defeitos estruturais relevantes.</li>
+</ol>
+</div>
+
+<!-- Critérios de Avaliação e Limites Normativos -->
+<div class="card-teste" style="border-left-color: #F29509;">
+<h2>3. Critérios de Tolerância e Restrição</h2>
+<p>O auditor técnico ou fiscal sanitário deve cruzar as porcentagens de desvio calculadas no laudo com as seguintes balizas regulatórias:</p>
+
+<div class="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>Parâmetro Avaliado</th>
+<th>Nível de Tolerância (Aprovado)</th>
+<th>Nível de Restrição (Reprovado)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Variabilidade de mAs (Exposição)</strong></td>
+<td class="aceitavel">&le; &plusmn; 10% da média do grupo</td>
+<td class="restricao">&gt; 15% de desvio</td>
+</tr>
+<tr>
+<td><strong>Variabilidade da Relação Sinal-Ruído (RSR)</strong></td>
+<td class="aceitavel">&le; &plusmn; 15% da RSR média do grupo</td>
+<td class="restricao">Fora do limite de tolerância</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<!-- Observações Importantes do Roteiro -->
+<div class="card-teste" style="border-left-color: #d32f2f;">
+<h2>4. Diretrizes Técnicas e de Fiscalização Sanitária (CEVS)</h2>
+<ul class="lista-interna" style="line-height: 1.8; color: #444;">
+<li><strong>Substituição por Desgaste Estrutural:</strong> As placas de fósforo que manifestarem artefatos significativos e marcas físicas na imagem (que não possam ser completamente removidos por meio dos procedimentos padrão de limpeza física ou ciclo de apagamento profundo) devem ser obrigatoriamente descartadas e substituídas.</li>
+<li><strong>Expectativa de Vida Útil do CR:</strong> Durante a inspeção técnica, o fiscal deve lembrar que as placas de fósforo CR possuem uma expectativa de vida útil limitada devido à degradação mecânica pelo atrito no leitor. Portanto, elas demandam monitoramento frequente e substituição regular para evitar a perda contínua de sensibilidade.</li>
+<li><strong>Interdição Clínica Imediata:</strong> Todas as placas de fósforo que operarem fora das tolerâncias de aceitabilidade estabelecidas (&gt; 15% de desvio em mAs) devem ser removidas imediatamente do uso clínico pelo serviço para evitar a entrega de doses excessivas ou a geração de exames com ruído severo nas pacientes.</li>
+</ul>
+</div>
+</div>
+
+<footer class="footer-oficial" style="background-color: #748da6; color: white; padding: 30px 20px; margin-top: 50px; font-size: 13px; line-height: 1.6;">
+<div style="max-width: 1000px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;">
+<div>
+<strong>CENTRO ESTADUAL DE VIGILÂNCIA EM SAÚDE - RS</strong><br>
+Referência Técnico-Sanitária em Radiodiagnóstico
+</div>
+<div>
+<img src="logo-rs.png" alt="Governo RS" style="max-height: 60px; filter: brightness(0) invert(1);">
+</div>
+</div>
+</footer>
+
+</body>
+</html>
